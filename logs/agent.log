@@ -232,3 +232,312 @@
 2026-06-18 16:02:54,882 - INFO - Dispatching query to Ollama (qwen3:8b)...
 2026-06-18 16:03:05,800 - INFO - Executing Tool: chat.respond
 2026-06-18 16:03:07,472 - INFO - Ollama model unloaded successfully.
+2026-06-18 16:10:12,121 - INFO - ========================================
+2026-06-18 16:10:12,121 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 16:10:12,121 - INFO - ========================================
+2026-06-18 16:10:12,185 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 16:10:34,147 - INFO - Planning requested context: 'how are you?'
+2026-06-18 16:10:34,147 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:10:45,170 - INFO - Executing Tool: chat.respond
+2026-06-18 16:10:57,469 - INFO - Planning requested context: 'what are u doing?'
+2026-06-18 16:10:57,469 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:11:02,895 - INFO - Executing Tool: chat.respond
+2026-06-18 16:11:16,852 - INFO - Planning requested context: 'had ur lunch?'
+2026-06-18 16:11:16,853 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:11:20,898 - INFO - Executing Tool: chat.respond
+2026-06-18 16:12:03,432 - INFO - Planning requested context: 'can u tell in which directory i have my netx_auronomous_vehicle folder is present?'
+2026-06-18 16:12:03,432 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:12:21,108 - INFO - Executing Tool: file.list_directory
+2026-06-18 16:13:27,079 - INFO - Planning requested context: 'ok cool thankyou'
+2026-06-18 16:13:27,079 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:13:34,938 - INFO - Executing Tool: chat.respond
+2026-06-18 16:13:48,461 - INFO - Planning requested context: 'do u know who i am?'
+2026-06-18 16:13:48,462 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:13:52,939 - INFO - Executing Tool: chat.respond
+2026-06-18 16:14:12,165 - INFO - Planning requested context: 'hmm in that case u can use hostame cmd to know right?'
+2026-06-18 16:14:12,166 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:14:16,742 - INFO - Executing Tool: system.hostname
+2026-06-18 16:14:40,099 - INFO - Planning requested context: 'what languages can u speak?'
+2026-06-18 16:14:40,100 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:14:47,910 - INFO - Executing Tool: chat.respond
+2026-06-18 16:15:14,193 - INFO - Planning requested context: 'Can u speak hindi/'
+2026-06-18 16:15:14,193 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:15:18,702 - INFO - Executing Tool: chat.respond
+2026-06-18 16:15:32,429 - INFO - Planning requested context: 'can u speak in hindi?'
+2026-06-18 16:15:32,429 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:15:37,912 - INFO - Executing Tool: chat.respond
+2026-06-18 16:15:58,299 - INFO - Planning requested context: 'damn that cool abb kya time hore?'
+2026-06-18 16:15:58,299 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:16:03,625 - INFO - Executing Tool: system.current_time
+2026-06-18 16:16:37,386 - INFO - Planning requested context: 'can u speak in telugu?'
+2026-06-18 16:16:37,386 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:16:55,298 - INFO - Executing Tool: chat.respond
+2026-06-18 16:17:12,701 - INFO - Planning requested context: 'anna time entha avuthundhi?'
+2026-06-18 16:17:12,701 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:17:17,643 - INFO - Executing Tool: system.current_time
+2026-06-18 16:17:34,958 - INFO - Planning requested context: 'anna na laptop ip adress enti?'
+2026-06-18 16:17:34,958 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:17:37,312 - INFO - Executing Tool: system.ip_address
+2026-06-18 16:17:57,101 - INFO - Planning requested context: 'anna chrome open chesi jai babu ani type chey'
+2026-06-18 16:17:57,101 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:18:02,497 - INFO - Executing Tool: app.open
+2026-06-18 16:18:16,396 - INFO - Planning requested context: 'anna chrome close chey'
+2026-06-18 16:18:16,396 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:18:32,949 - INFO - Executing Tool: chat.respond
+2026-06-18 16:18:53,677 - INFO - Planning requested context: 'anna chrome open chesi search jai babu'
+2026-06-18 16:18:53,677 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:18:59,942 - INFO - Executing Tool: app.open
+2026-06-18 16:19:24,783 - INFO - Ollama model unloaded successfully.
+2026-06-18 16:20:03,671 - INFO - ========================================
+2026-06-18 16:20:03,671 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 16:20:03,671 - INFO - ========================================
+2026-06-18 16:20:03,811 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 16:20:10,738 - INFO - Planning requested context: 'open vs code'
+2026-06-18 16:20:10,739 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:20:19,641 - INFO - Executing Tool: app.open
+2026-06-18 16:20:39,385 - INFO - Planning requested context: 'create a file named "jai_babu" in home'
+2026-06-18 16:20:39,385 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:20:51,845 - INFO - Executing Tool: file.create_folder
+2026-06-18 16:21:42,303 - INFO - Planning requested context: 'where did u create that folder?'
+2026-06-18 16:21:42,304 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:22:10,067 - INFO - Executing Tool: file.list_directory
+2026-06-18 16:22:33,374 - INFO - Ollama model unloaded successfully.
+2026-06-18 16:24:11,136 - INFO - ========================================
+2026-06-18 16:24:11,136 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 16:24:11,136 - INFO - ========================================
+2026-06-18 16:24:11,199 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 16:24:24,711 - INFO - Planning requested context: 'bro open chromium and search ollama new model'
+2026-06-18 16:24:24,711 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:24:54,731 - ERROR - Ollama connection dropped/failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 16:24:54,731 - ERROR - Worker runtime exception captured: Could not interact with local LLM context: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 16:25:05,807 - INFO - Planning requested context: 'how are you?'
+2026-06-18 16:25:05,807 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:25:10,256 - INFO - Executing Tool: chat.respond
+2026-06-18 16:26:45,697 - INFO - Planning requested context: 'open chromium'
+2026-06-18 16:26:45,697 - INFO - Fast-path command matched.
+2026-06-18 16:26:45,698 - INFO - Executing Tool: app.open
+2026-06-18 16:26:58,788 - INFO - Planning requested context: 'search ollama new model'
+2026-06-18 16:26:58,788 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:27:01,653 - INFO - Executing Tool: browser.search
+2026-06-18 16:27:24,026 - INFO - Planning requested context: 'open chrome and search what i sthe crypto price'
+2026-06-18 16:27:24,026 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:27:47,332 - INFO - Executing Tool: app.open
+2026-06-18 16:28:07,918 - INFO - Planning requested context: 'search what is crypto price?'
+2026-06-18 16:28:07,918 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:28:11,236 - INFO - Executing Tool: browser.search
+2026-06-18 16:28:24,350 - INFO - Planning requested context: 'open the first link'
+2026-06-18 16:28:24,350 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:28:43,807 - INFO - Ollama model unloaded successfully.
+2026-06-18 16:40:29,537 - INFO - ========================================
+2026-06-18 16:40:29,537 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 16:40:29,537 - INFO - ========================================
+2026-06-18 16:40:29,601 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 16:40:43,680 - INFO - Planning requested context: 'open chrome'
+2026-06-18 16:40:43,680 - INFO - Fast-path command matched.
+2026-06-18 16:40:43,680 - INFO - Executing Tool: app.open
+2026-06-18 16:40:59,368 - INFO - Planning requested context: 'seacrh for what is the cryto price now?'
+2026-06-18 16:40:59,369 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:41:09,264 - INFO - Executing Tool: browser.search
+2026-06-18 16:44:37,569 - INFO - Planning requested context: 'what is my cpu usage percetage?'
+2026-06-18 16:44:37,569 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:44:39,821 - INFO - Executing Tool: system.cpu_usage
+2026-06-18 16:44:49,738 - INFO - Planning requested context: 'what is my ip adress'
+2026-06-18 16:44:49,738 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 16:44:54,401 - INFO - Executing Tool: system.ip_address
+2026-06-18 16:50:22,051 - INFO - Planning requested context: 'open chatgpt'
+2026-06-18 16:50:22,051 - INFO - Fast-path command matched.
+2026-06-18 16:50:22,052 - INFO - Executing Tool: browser.open_url
+2026-06-18 17:00:40,621 - INFO - Ollama model unloaded successfully.
+2026-06-18 17:31:18,093 - INFO - ========================================
+2026-06-18 17:31:18,094 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 17:31:18,094 - INFO - ========================================
+2026-06-18 17:31:18,161 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 17:31:27,811 - INFO - Planning requested context: 'hello how are you?'
+2026-06-18 17:31:27,812 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 17:31:41,447 - INFO - Executing Tool: chat.respond
+2026-06-18 17:31:50,770 - INFO - Planning requested context: 'what time is it now?'
+2026-06-18 17:31:50,770 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 17:31:53,870 - INFO - Executing Tool: system.current_time
+2026-06-18 17:32:27,052 - INFO - Planning requested context: 'open chrome'
+2026-06-18 17:32:27,053 - INFO - Fast-path command matched.
+2026-06-18 17:32:27,053 - INFO - Executing Tool: app.open
+2026-06-18 17:32:44,781 - INFO - Planning requested context: 'open new tab'
+2026-06-18 17:32:44,781 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 17:32:47,137 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 17:33:07,232 - INFO - Planning requested context: 'open new tab'
+2026-06-18 17:33:07,233 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 17:33:09,569 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 17:33:39,294 - INFO - Planning requested context: 'search youtube'
+2026-06-18 17:33:39,294 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 17:33:42,613 - INFO - Executing Tool: browser.search
+2026-06-18 17:35:52,451 - INFO - Ollama model unloaded successfully.
+2026-06-18 21:01:16,615 - INFO - ========================================
+2026-06-18 21:01:16,615 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 21:01:16,615 - INFO - ========================================
+2026-06-18 21:01:16,710 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 21:01:24,099 - INFO - Planning requested context: 'hello?'
+2026-06-18 21:01:24,100 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:01:36,914 - INFO - Executing Tool: chat.respond
+2026-06-18 21:01:51,020 - INFO - Planning requested context: 'open chromium and new tab'
+2026-06-18 21:01:51,020 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:02:21,052 - ERROR - Ollama connection dropped/failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:02:21,052 - ERROR - Worker runtime exception captured: Could not interact with local LLM context: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:02:31,091 - INFO - Planning requested context: 'open chromium'
+2026-06-18 21:02:31,091 - INFO - Fast-path command matched.
+2026-06-18 21:02:31,092 - INFO - Executing Tool: app.open
+2026-06-18 21:02:38,319 - INFO - Planning requested context: 'open new tab'
+2026-06-18 21:02:38,320 - INFO - Fast-path command matched.
+2026-06-18 21:02:38,320 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 21:03:02,893 - INFO - Planning requested context: 'open new tab'
+2026-06-18 21:03:02,893 - INFO - Fast-path command matched.
+2026-06-18 21:03:02,893 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 21:03:59,073 - INFO - Ollama model unloaded successfully.
+2026-06-18 21:05:20,123 - INFO - ========================================
+2026-06-18 21:05:20,124 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 21:05:20,124 - INFO - ========================================
+2026-06-18 21:05:20,206 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 21:05:27,477 - INFO - Planning requested context: 'open chrome'
+2026-06-18 21:05:27,477 - INFO - Fast-path command matched.
+2026-06-18 21:05:27,477 - INFO - Executing Tool: app.open
+2026-06-18 21:05:33,444 - INFO - Planning requested context: 'open new tab'
+2026-06-18 21:05:33,444 - INFO - Fast-path command matched.
+2026-06-18 21:05:33,444 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 21:05:46,803 - INFO - Planning requested context: 'open new tab'
+2026-06-18 21:05:46,803 - INFO - Fast-path command matched.
+2026-06-18 21:05:46,803 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 21:05:56,607 - INFO - Planning requested context: 'open chrome'
+2026-06-18 21:05:56,607 - INFO - Fast-path command matched.
+2026-06-18 21:05:56,607 - INFO - Executing Tool: app.open
+2026-06-18 21:06:04,395 - INFO - Planning requested context: 'open new tab'
+2026-06-18 21:06:04,396 - INFO - Fast-path command matched.
+2026-06-18 21:06:04,396 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 21:07:30,954 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:07:30,954 - INFO - Fast-path command matched.
+2026-06-18 21:07:30,955 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:07:30,955 - ERROR - Tool Execution Failed: Unknown function 'open_url' for tool 'browser'
+2026-06-18 21:07:42,517 - INFO - Planning requested context: 'open chrome'
+2026-06-18 21:07:42,517 - INFO - Fast-path command matched.
+2026-06-18 21:07:42,518 - INFO - Executing Tool: app.open
+2026-06-18 21:07:48,822 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:07:48,822 - INFO - Fast-path command matched.
+2026-06-18 21:07:48,822 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:07:48,822 - ERROR - Tool Execution Failed: Unknown function 'open_url' for tool 'browser'
+2026-06-18 21:07:55,431 - INFO - Planning requested context: 'open github'
+2026-06-18 21:07:55,432 - INFO - Fast-path command matched.
+2026-06-18 21:07:55,432 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:07:55,432 - ERROR - Tool Execution Failed: Unknown function 'open_url' for tool 'browser'
+2026-06-18 21:09:20,720 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:09:20,720 - INFO - Fast-path command matched.
+2026-06-18 21:09:20,720 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:09:20,721 - ERROR - Tool Execution Failed: Unknown function 'open_url' for tool 'browser'
+2026-06-18 21:11:04,985 - INFO - Ollama model unloaded successfully.
+2026-06-18 21:11:08,344 - INFO - ========================================
+2026-06-18 21:11:08,344 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 21:11:08,344 - INFO - ========================================
+2026-06-18 21:11:08,406 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 21:11:19,952 - INFO - Planning requested context: 'open chromium'
+2026-06-18 21:11:19,952 - INFO - Fast-path command matched.
+2026-06-18 21:11:19,952 - INFO - Executing Tool: app.open
+2026-06-18 21:11:31,536 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:11:31,536 - INFO - Fast-path command matched.
+2026-06-18 21:11:31,536 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:14:20,065 - INFO - Ollama model unloaded successfully.
+2026-06-18 21:14:23,708 - INFO - ========================================
+2026-06-18 21:14:23,708 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 21:14:23,708 - INFO - ========================================
+2026-06-18 21:14:23,769 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 21:14:31,290 - INFO - Planning requested context: 'open chromium'
+2026-06-18 21:14:31,291 - INFO - Fast-path command matched.
+2026-06-18 21:14:31,291 - INFO - Executing Tool: app.open
+2026-06-18 21:14:38,250 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:14:38,250 - INFO - Fast-path command matched.
+2026-06-18 21:14:38,251 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:14:46,699 - INFO - Planning requested context: 'open new tab'
+2026-06-18 21:14:46,699 - INFO - Fast-path command matched.
+2026-06-18 21:14:46,700 - INFO - Executing Tool: browser.open_new_tab
+2026-06-18 21:14:54,942 - INFO - Planning requested context: 'open git hub in new tab'
+2026-06-18 21:14:54,942 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:15:24,954 - ERROR - Ollama connection dropped/failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:15:24,954 - ERROR - Worker runtime exception captured: Could not interact with local LLM context: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:15:30,786 - INFO - Planning requested context: 'open github'
+2026-06-18 21:15:30,786 - INFO - Fast-path command matched.
+2026-06-18 21:15:30,787 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:15:49,652 - INFO - Planning requested context: 'open new tab then after open instagram'
+2026-06-18 21:15:49,652 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:16:19,678 - ERROR - Ollama connection dropped/failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:16:19,678 - ERROR - Worker runtime exception captured: Could not interact with local LLM context: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:16:31,882 - INFO - Planning requested context: 'open chromium'
+2026-06-18 21:16:31,882 - INFO - Fast-path command matched.
+2026-06-18 21:16:31,882 - INFO - Executing Tool: app.open
+2026-06-18 21:16:43,877 - INFO - Planning requested context: 'open gmail'
+2026-06-18 21:16:43,877 - INFO - Fast-path command matched.
+2026-06-18 21:16:43,877 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:17:17,616 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:17:17,616 - INFO - Fast-path command matched.
+2026-06-18 21:17:17,616 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:28:44,607 - INFO - Planning requested context: 'what is my disk uage?'
+2026-06-18 21:28:44,607 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:28:54,081 - INFO - Executing Tool: system.disk_usage
+2026-06-18 21:29:50,582 - INFO - Planning requested context: 'open chromium'
+2026-06-18 21:29:50,582 - INFO - Fast-path command matched.
+2026-06-18 21:29:50,583 - INFO - Executing Tool: app.open
+2026-06-18 21:30:17,247 - INFO - Planning requested context: 'open chromium and then open youtube'
+2026-06-18 21:30:17,247 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:30:47,263 - ERROR - Ollama connection dropped/failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:30:47,263 - ERROR - Worker runtime exception captured: Could not interact with local LLM context: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 21:33:35,984 - INFO - Ollama model unloaded successfully.
+2026-06-18 21:42:47,573 - INFO - ========================================
+2026-06-18 21:42:47,573 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 21:42:47,573 - INFO - ========================================
+2026-06-18 21:42:47,634 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 21:43:33,010 - INFO - Planning requested context: 'open chromium and open youtube'
+2026-06-18 21:43:33,011 - ERROR - Worker runtime exception captured: 'OllamaClient' object has no attribute 'generate'
+2026-06-18 21:43:45,132 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:43:45,132 - INFO - Fast-path command matched.
+2026-06-18 21:43:45,133 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:43:55,644 - INFO - Planning requested context: 'open chrome'
+2026-06-18 21:43:55,644 - INFO - Fast-path command matched.
+2026-06-18 21:43:55,644 - INFO - Executing Tool: app.open
+2026-06-18 21:44:10,071 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:44:10,071 - INFO - Fast-path command matched.
+2026-06-18 21:44:10,072 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:44:18,520 - INFO - Planning requested context: 'open chrome'
+2026-06-18 21:44:18,520 - INFO - Fast-path command matched.
+2026-06-18 21:44:18,520 - INFO - Executing Tool: app.open
+2026-06-18 21:44:31,951 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:44:31,952 - INFO - Fast-path command matched.
+2026-06-18 21:44:31,952 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:45:26,027 - INFO - Planning requested context: 'open chrome and then open youtube'
+2026-06-18 21:45:26,027 - ERROR - Worker runtime exception captured: 'OllamaClient' object has no attribute 'generate'
+2026-06-18 21:46:55,726 - INFO - Ollama model unloaded successfully.
+2026-06-18 21:47:05,299 - INFO - ========================================
+2026-06-18 21:47:05,299 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 21:47:05,300 - INFO - ========================================
+2026-06-18 21:47:05,361 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 21:47:09,675 - INFO - Planning requested context: 'open chrome'
+2026-06-18 21:47:09,676 - INFO - Fast-path command matched.
+2026-06-18 21:47:09,676 - INFO - Executing Tool: app.open
+2026-06-18 21:47:22,019 - INFO - Planning requested context: 'open youtube'
+2026-06-18 21:47:22,019 - INFO - Fast-path command matched.
+2026-06-18 21:47:22,019 - INFO - Executing Tool: browser.open_url
+2026-06-18 21:47:59,245 - INFO - Planning requested context: 'open chrome and then open youtube'
+2026-06-18 21:47:59,245 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 21:48:10,982 - INFO - Executing Tool: app.open
+2026-06-18 22:01:28,025 - INFO - Ollama model unloaded successfully.
+2026-06-18 22:01:30,595 - INFO - ========================================
+2026-06-18 22:01:30,595 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 22:01:30,595 - INFO - ========================================
+2026-06-18 22:01:30,658 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 22:01:37,122 - INFO - Planning requested context: 'open chrome'
+2026-06-18 22:01:37,122 - INFO - Fast-path command matched.
+2026-06-18 22:01:37,122 - INFO - Executing Tool: app.open
+2026-06-18 22:01:44,848 - INFO - Planning requested context: 'open youtube'
+2026-06-18 22:01:44,848 - INFO - Fast-path command matched.
+2026-06-18 22:01:44,848 - INFO - Executing Tool: browser.open_url
+2026-06-18 22:02:18,962 - INFO - Planning requested context: 'open chrome'
+2026-06-18 22:02:18,962 - INFO - Fast-path command matched.
+2026-06-18 22:02:18,963 - INFO - Executing Tool: app.open
+2026-06-18 22:02:19,964 - INFO - Planning requested context: 'open gmail'
+2026-06-18 22:02:19,964 - INFO - Fast-path command matched.
+2026-06-18 22:02:19,964 - INFO - Executing Tool: browser.open_url
+2026-06-18 22:02:27,143 - INFO - Ollama model unloaded successfully.

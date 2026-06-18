@@ -35,3 +35,9 @@ pip install -r requirements.txt
 6. Launching the Agent:
 
 python app.py
+
+
+
+7. Have to install wcrtl
+
+sudo apt install wmctrl

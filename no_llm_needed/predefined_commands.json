@@ -165,5 +165,43 @@
     "arguments": {
       "url": "https://web.whatsapp.com"
     }
+  },
+
+  "new tab": {
+  "tool":"browser",
+  "function":"open_new_tab",
+  "arguments":{}
+  },
+
+  "open new tab": {
+    "tool":"browser",
+    "function":"open_new_tab",
+    "arguments":{}
+  },
+
+  "close tab": {
+    "tool":"browser",
+    "function":"close_tab",
+    "arguments":{}
+  },
+
+  "refresh page": {
+    "tool":"browser",
+    "function":"refresh",
+    "arguments":{}
+  },
+
+  "go back": {
+    "tool":"browser",
+    "function":"go_back",
+    "arguments":{}
+  },
+
+  "go forward": {
+    "tool":"browser",
+    "function":"go_forward",
+    "arguments":{}
   }
+
+
 }

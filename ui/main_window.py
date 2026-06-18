@@ -5,6 +5,8 @@ from planner.task_planner import TaskPlanner
 from executor.action_executor import ActionExecutor
 from tools.logger import agent_logger
 import subprocess
+from ui.command_splitter import split_commands
+import time
 
 class AgentWorker(QThread):
     """Background computation runner safeguarding UI layout components from locking loops."""
@@ -18,16 +20,54 @@ class AgentWorker(QThread):
         self.text = text
 
     def run(self):
+
         try:
-            self.status_signal.emit("Analyzing input patterns via local LLM model...")
-            plan = self.planner.create_plan(self.text)
-            
-            self.status_signal.emit("Valid payload compiled. Handing control over to executor...")
-            success = self.executor.execute(plan, status_callback=self.status_signal.emit)
-            self.finished_signal.emit(success)
+
+            commands = split_commands(
+                self.text
+            )
+
+            overall_success = True
+
+            for command in commands:
+
+                self.status_signal.emit(
+                    f"Analyzing: {command}"
+                )
+
+                plan = self.planner.create_plan(
+                    command
+                )
+
+                self.status_signal.emit(
+                    "Valid payload compiled. Handing control over to executor..."
+                )
+
+                success = self.executor.execute(
+                    plan,
+                    status_callback=self.status_signal.emit
+                )
+
+                overall_success = (
+                    overall_success and success
+                )
+
+                time.sleep(1)
+
+            self.finished_signal.emit(
+                overall_success
+            )
+
         except Exception as e:
-            agent_logger.error(f"Worker runtime exception captured: {str(e)}")
-            self.status_signal.emit(f"Error: {str(e)}")
+
+            agent_logger.error(
+                f"Worker runtime exception captured: {str(e)}"
+            )
+
+            self.status_signal.emit(
+                f"Error: {str(e)}"
+            )
+
             self.finished_signal.emit(False)
 
 
@@ -122,7 +162,7 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
 
         try:
-
+            
             subprocess.run(
                 ["ollama", "stop", "qwen3:8b"],
                 timeout=10

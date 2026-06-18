@@ -3,6 +3,7 @@ from tools.browser_tools.browser_tool import BrowserTool
 from tools.file_tools.file_tool import FileTool
 from tools.app_tools.app_tool import AppTool
 from tools.chat_tools.chat_tool import ChatTool
+from tools.gui_tools.gui_tool import GUITool
 
 class ToolExecutor:
 
@@ -18,7 +19,8 @@ class ToolExecutor:
             "browser": BrowserTool,
             "file": FileTool,
             "app": AppTool,
-            "chat": ChatTool
+            "chat": ChatTool,
+            "gui": GUITool
         }
 
         tool_class = tool_map.get(tool)
