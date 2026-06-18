@@ -4,6 +4,7 @@ from ui.prompt_bar import PromptBar
 from planner.task_planner import TaskPlanner
 from executor.action_executor import ActionExecutor
 from tools.logger import agent_logger
+import subprocess
 
 class AgentWorker(QThread):
     """Background computation runner safeguarding UI layout components from locking loops."""
@@ -64,13 +65,47 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central_widget)
 
     def _process_command(self, text: str):
-        self.chat_display.append(f"<b>User:</b> {text}")
-        self.prompt_bar.set_running_state(True)
-        
-        # Instantiate concurrent lifecycle management parameters
-        self.worker = AgentWorker(self.planner, self.executor, text)
-        self.worker.status_signal.connect(self._update_status)
-        self.worker.finished_signal.connect(self._handle_worker_completion)
+
+        cleaned_text = text.strip().lower()
+
+        if cleaned_text in ["clear", "cls", "reset"]:
+
+            self.chat_display.clear()
+
+            self.status_bar.setText(
+                "Console history cleared."
+            )
+
+            return
+
+        if cleaned_text in ["exit", "quit", "close"]:
+
+            self.close()
+
+            return
+
+        self.chat_display.append(
+            f"<b>User:</b> {text}"
+        )
+
+        self.prompt_bar.set_running_state(
+            True
+        )
+
+        self.worker = AgentWorker(
+            self.planner,
+            self.executor,
+            text
+        )
+
+        self.worker.status_signal.connect(
+            self._update_status
+        )
+
+        self.worker.finished_signal.connect(
+            self._handle_worker_completion
+        )
+
         self.worker.start()
 
     def _update_status(self, status: str):
@@ -83,3 +118,24 @@ class MainWindow(QMainWindow):
             self.status_bar.setText("Task cycle finished successfully.")
         else:
             self.status_bar.setText("Cycle terminated early due to processing faults.")
+
+    def closeEvent(self, event):
+
+        try:
+
+            subprocess.run(
+                ["ollama", "stop", "qwen3:8b"],
+                timeout=10
+            )
+
+            agent_logger.info(
+                "Ollama model unloaded successfully."
+            )
+
+        except Exception as e:
+
+            agent_logger.warning(
+                f"Failed to unload Ollama model: {str(e)}"
+            )
+
+        event.accept()

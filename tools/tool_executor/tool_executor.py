@@ -2,7 +2,7 @@ from tools.system_tools.system_tool import SystemTool
 from tools.browser_tools.browser_tool import BrowserTool
 from tools.file_tools.file_tool import FileTool
 from tools.app_tools.app_tool import AppTool
-
+from tools.chat_tools.chat_tool import ChatTool
 
 class ToolExecutor:
 
@@ -17,7 +17,8 @@ class ToolExecutor:
             "system": SystemTool,
             "browser": BrowserTool,
             "file": FileTool,
-            "app": AppTool
+            "app": AppTool,
+            "chat": ChatTool
         }
 
         tool_class = tool_map.get(tool)

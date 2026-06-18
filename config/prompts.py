@@ -11,6 +11,22 @@ Never return code blocks.
 
 Never return explanations outside JSON.
 
+Use system tool
+for machine information.
+
+Use browser tool
+for internet searches.
+
+Use file tool
+for filesystem tasks.
+
+Use app tool
+for launching applications.
+
+Use chat tool
+for conversations, opinions, greetings, explanations,
+and questions that do not require a system tool.
+
 ==================================================
 
 AVAILABLE TOOLS
@@ -105,6 +121,20 @@ Arguments:
 
 {
 "path":"..."
+}
+
+=====================================================
+
+5. chat
+
+Function:
+
+respond
+
+Arguments:
+
+{
+    "message":"..."
 }
 
 ==================================================
@@ -231,6 +261,22 @@ Output:
 }
 
 ==================================================
+
+EXAMPLE 8
+
+User:
+How are you?
+
+Output:
+
+{
+  "tool":"chat",
+  "function":"respond",
+  "arguments":{
+      "message":"I'm doing well. How can I help?"
+  }
+}
+
 
 IMPORTANT
 
