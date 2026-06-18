@@ -1,0 +1,190 @@
+{
+"open chrome": {
+"actions": [
+{
+"action": "open_app",
+"app": "chrome"
+}
+]
+},
+
+"open chromium": {
+"actions": [
+{
+"action": "open_app",
+"app": "chromium"
+}
+]
+},
+
+"open firefox": {
+"actions": [
+{
+"action": "open_app",
+"app": "firefox"
+}
+]
+},
+
+"open terminal": {
+"actions": [
+{
+"action": "open_app",
+"app": "terminal"
+}
+]
+},
+
+"open vscode": {
+"actions": [
+{
+"action": "open_app",
+"app": "vscode"
+}
+]
+},
+
+"open youtube": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://youtube.com"
+}
+]
+},
+
+"open gmail": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://mail.google.com"
+}
+]
+},
+
+"open github": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://github.com"
+}
+]
+},
+
+"open chatgpt": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://chatgpt.com"
+}
+]
+},
+
+"open google": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://google.com"
+}
+]
+},
+
+"open linkedin": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://linkedin.com"
+}
+]
+},
+
+"open reddit": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://reddit.com"
+}
+]
+},
+
+"open x": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://x.com"
+}
+]
+},
+
+"open twitter": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://x.com"
+}
+]
+},
+
+"open instagram": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://instagram.com"
+}
+]
+},
+
+"open facebook": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://facebook.com"
+}
+]
+},
+
+"open amazon": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://amazon.in"
+}
+]
+},
+
+"open netflix": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://netflix.com"
+}
+]
+},
+
+"open spotify": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://spotify.com"
+}
+]
+},
+
+"open stackoverflow": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://stackoverflow.com"
+}
+]
+},
+
+"open whatsapp": {
+"actions": [
+{
+"action": "open_url",
+"url": "https://web.whatsapp.com"
+}
+]
+}
+}

@@ -4,10 +4,11 @@ import json
 from tools.logger import agent_logger
 
 class ActionItem(BaseModel):
-    action: Literal["open_app", "open_url", "search"]
+    action: Literal["open_app", "open_url", "search","chat"]
     app: Optional[str] = None
     url: Optional[str] = None
     query: Optional[str] = None
+    response: Optional[str] = None
 
 class ActionPlanSchema(BaseModel):
     actions: List[ActionItem] = Field(default_factory=list)

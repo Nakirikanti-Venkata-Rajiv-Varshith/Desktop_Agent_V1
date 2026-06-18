@@ -12,13 +12,20 @@ class ActionExecutor:
 
     def execute(self, plan: ActionPlanSchema, status_callback=None) -> bool:
         """Iterates steps within thread barriers to protect UI stability flags."""
+        is_chat_only = (
+            len(plan.actions) == 1
+            and plan.actions[0].action == "chat"
+        )
         if not plan.actions:
             agent_logger.warning("Execution schema contains an empty action matrix.")
             if status_callback: status_callback("Plan empty.")
             return False
 
         for index, item in enumerate(plan.actions, start=1):
-            msg = f"Executing sub-task [{index}/{len(plan.actions)}]: {item.action.upper()}"
+            if item.action == "chat":
+                msg = item.response
+            else:
+                msg = f"Executing sub-task [{index}/{len(plan.actions)}]: {item.action.upper()}"
             agent_logger.info(msg)
             if status_callback: status_callback(msg)
             
@@ -29,7 +36,12 @@ class ActionExecutor:
                 if status_callback: status_callback(err_msg)
                 return False
                 
-        if status_callback: status_callback("All actions completed successfully.")
+        if not is_chat_only:
+            if status_callback:
+                status_callback(
+                    "All actions completed successfully."
+                )
+
         return True
 
     def _dispatch_item(self, item: ActionItem) -> bool:
@@ -39,4 +51,12 @@ class ActionExecutor:
             return self.browser.open_url(item.url)
         elif item.action == "search":
             return self.browser.search_google(item.query)
+        elif item.action == "chat":
+
+            if item.response:
+                agent_logger.info(
+                    f"Chat Response: {item.response}"
+                )
+
+            return True
         return False
