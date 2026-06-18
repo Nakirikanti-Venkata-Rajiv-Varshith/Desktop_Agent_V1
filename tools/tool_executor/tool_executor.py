@@ -1,7 +1,8 @@
-from system_tools.system_tool import SystemTool
-from browser_tools.browser_tool import BrowserTool
-from file_tools.file_tool import FileTool
-from app_tools.app_tool import AppTool
+from tools.system_tools.system_tool import SystemTool
+from tools.browser_tools.browser_tool import BrowserTool
+from tools.file_tools.file_tool import FileTool
+from tools.app_tools.app_tool import AppTool
+
 
 class ToolExecutor:
 
@@ -12,38 +13,31 @@ class ToolExecutor:
         arguments
     ):
 
-        if tool == "system":
+        tool_map = {
+            "system": SystemTool,
+            "browser": BrowserTool,
+            "file": FileTool,
+            "app": AppTool
+        }
+
+        tool_class = tool_map.get(tool)
+
+        if not tool_class:
+            raise ValueError(
+                f"Unknown tool: {tool}"
+            )
+
+        try:
 
             fn = getattr(
-                SystemTool,
+                tool_class,
                 function
             )
 
-            return fn(**arguments)
+        except AttributeError:
 
-        elif tool == "browser":
-
-            fn = getattr(
-                BrowserTool,
-                function
+            raise ValueError(
+                f"Unknown function '{function}' for tool '{tool}'"
             )
 
-            return fn(**arguments)
-
-        elif tool == "file":
-
-            fn = getattr(
-                FileTool,
-                function
-            )
-
-            return fn(**arguments)
-
-        elif tool == "app":
-
-            fn = getattr(
-                AppTool,
-                function
-            )
-
-            return fn(**arguments)
+        return fn(**arguments)

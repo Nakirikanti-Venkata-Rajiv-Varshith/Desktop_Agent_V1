@@ -1,13 +1,16 @@
 from llm.ollama_client import OllamaClient
-from llm.parser import PlanParser, ActionPlanSchema
+from llm.parser import PlanParser, ToolPlan
 from tools.logger import agent_logger
 from no_llm_needed.command_matcher import CommandMatcher
 
+
 class TaskPlanner:
     """Pipeline component converting natural expressions into structured validation schemas."""
-    
+
     def __init__(self):
+
         self.client = OllamaClient()
+
         self.parser = PlanParser()
 
         self.command_matcher = CommandMatcher()
@@ -28,7 +31,7 @@ class TaskPlanner:
                 "Fast-path command matched."
             )
 
-            return ActionPlanSchema(
+            return ToolPlan(
                 **predefined
             )
 

@@ -3,21 +3,21 @@ from typing import List, Optional, Literal
 import json
 from tools.logger import agent_logger
 
-class ActionItem(BaseModel):
-    action: Literal["open_app", "open_url", "search","chat"]
-    app: Optional[str] = None
-    url: Optional[str] = None
-    query: Optional[str] = None
-    response: Optional[str] = None
+class ToolPlan(BaseModel):
 
-class ActionPlanSchema(BaseModel):
-    actions: List[ActionItem] = Field(default_factory=list)
+    tool: str
+
+    function: str
+
+    arguments: dict = Field(default_factory=dict)
+
+
 
 class PlanParser:
     """Validates structural accuracy of incoming generation outputs via Pydantic."""
     
     @staticmethod
-    def parse_and_validate(raw_text: str) -> ActionPlanSchema:
+    def parse_and_validate(raw_text: str) -> ToolPlan:
         """Coerces generation string patterns into validated Pydantic model state."""
         cleaned = raw_text.strip()
         # Edge case cleanup for models that break structural rules and add code fences
@@ -26,7 +26,7 @@ class PlanParser:
             
         try:
             parsed_json = json.loads(cleaned)
-            validated_plan = ActionPlanSchema(**parsed_json)
+            validated_plan = ToolPlan(**parsed_json)
             return validated_plan
         except Exception as e:
             agent_logger.error(f"Pydantic Validation failed for layout: {raw_text}. Error: {str(e)}")

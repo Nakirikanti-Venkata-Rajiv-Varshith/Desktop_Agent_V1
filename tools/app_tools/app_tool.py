@@ -4,6 +4,7 @@ class AppTool:
 
     APPS = {
         "chrome":"chromium",
+        "chromium": "chromium",
         "firefox":"firefox",
         "terminal":"gnome-terminal",
         "vscode":"code"
@@ -15,7 +16,7 @@ class AppTool:
         cmd = AppTool.APPS.get(app)
 
         if not cmd:
-            return "Unknown App"
+            return f"Unknown App: {app}"
 
         subprocess.Popen([cmd])
 

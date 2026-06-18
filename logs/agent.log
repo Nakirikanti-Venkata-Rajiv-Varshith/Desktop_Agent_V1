@@ -146,3 +146,52 @@
 2026-06-18 14:45:49,862 - INFO - Dispatching query to Ollama (qwen3:8b)...
 2026-06-18 14:46:10,463 - INFO - I can't access real-time data. Please check your system clock for the current time.
 2026-06-18 14:46:10,464 - INFO - Chat Response: I can't access real-time data. Please check your system clock for the current time.
+2026-06-18 15:28:14,706 - INFO - ========================================
+2026-06-18 15:28:14,706 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 15:28:14,706 - INFO - ========================================
+2026-06-18 15:28:14,766 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 15:28:27,511 - INFO - Planning requested context: 'open chromium'
+2026-06-18 15:28:27,511 - INFO - Fast-path command matched.
+2026-06-18 15:28:27,511 - INFO - Executing Tool: app.open
+2026-06-18 15:28:42,618 - INFO - Planning requested context: 'open telegram'
+2026-06-18 15:28:42,619 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:29:12,651 - ERROR - Ollama connection dropped/failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 15:29:12,651 - ERROR - Worker runtime exception captured: Could not interact with local LLM context: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=30)
+2026-06-18 15:31:04,589 - INFO - ========================================
+2026-06-18 15:31:04,590 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 15:31:04,590 - INFO - ========================================
+2026-06-18 15:31:04,650 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 15:31:11,157 - INFO - Planning requested context: 'open chromium'
+2026-06-18 15:31:11,158 - INFO - Fast-path command matched.
+2026-06-18 15:31:11,158 - INFO - Executing Tool: app.open
+2026-06-18 15:31:19,970 - INFO - Planning requested context: 'what time is it now?'
+2026-06-18 15:31:19,971 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:31:22,206 - INFO - Executing Tool: system.current_time
+2026-06-18 15:31:36,367 - INFO - Planning requested context: 'what is my cpu usage percentage?'
+2026-06-18 15:31:36,367 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:31:40,755 - INFO - Executing Tool: system.cpu_usage
+2026-06-18 15:32:46,836 - INFO - Planning requested context: 'what is my ram usage?'
+2026-06-18 15:32:46,836 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:32:49,823 - INFO - Executing Tool: system.ram_usage
+2026-06-18 15:33:07,172 - INFO - Planning requested context: 'what operating system am i running?'
+2026-06-18 15:33:07,172 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:33:10,292 - INFO - Executing Tool: system.os_info
+2026-06-18 15:33:22,258 - INFO - Planning requested context: 'what is my hostname?'
+2026-06-18 15:33:22,258 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:33:24,893 - INFO - Executing Tool: system.hostname
+2026-06-18 15:37:32,139 - INFO - ========================================
+2026-06-18 15:37:32,139 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-18 15:37:32,139 - INFO - ========================================
+2026-06-18 15:37:32,201 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-18 15:37:46,553 - INFO - Planning requested context: 'what is my battery usage percentage?'
+2026-06-18 15:37:46,553 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:37:52,911 - INFO - Executing Tool: system.battery_status
+2026-06-18 15:38:05,935 - INFO - Planning requested context: 'what is my ip address?'
+2026-06-18 15:38:05,935 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:38:11,151 - INFO - Executing Tool: system.ip_address
+2026-06-18 15:38:17,245 - INFO - Planning requested context: 'how much disk space do i have?'
+2026-06-18 15:38:17,245 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:38:21,722 - INFO - Executing Tool: system.disk_usage
+2026-06-18 15:38:40,922 - INFO - Planning requested context: 'clear'
+2026-06-18 15:38:40,922 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-18 15:39:00,408 - INFO - Executing Tool: app.open

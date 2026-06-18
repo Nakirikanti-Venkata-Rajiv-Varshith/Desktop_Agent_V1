@@ -1,190 +1,169 @@
 {
-"open chrome": {
-"actions": [
-{
-"action": "open_app",
-"app": "chrome"
-}
-]
-},
+  "open chrome": {
+    "tool": "app",
+    "function": "open",
+    "arguments": {
+      "app": "chrome"
+    }
+  },
 
-"open chromium": {
-"actions": [
-{
-"action": "open_app",
-"app": "chromium"
-}
-]
-},
+  "open chromium": {
+    "tool": "app",
+    "function": "open",
+    "arguments": {
+      "app": "chromium"
+    }
+  },
 
-"open firefox": {
-"actions": [
-{
-"action": "open_app",
-"app": "firefox"
-}
-]
-},
+  "open firefox": {
+    "tool": "app",
+    "function": "open",
+    "arguments": {
+      "app": "firefox"
+    }
+  },
 
-"open terminal": {
-"actions": [
-{
-"action": "open_app",
-"app": "terminal"
-}
-]
-},
+  "open terminal": {
+    "tool": "app",
+    "function": "open",
+    "arguments": {
+      "app": "terminal"
+    }
+  },
 
-"open vscode": {
-"actions": [
-{
-"action": "open_app",
-"app": "vscode"
-}
-]
-},
+  "open vscode": {
+    "tool": "app",
+    "function": "open",
+    "arguments": {
+      "app": "vscode"
+    }
+  },
 
-"open youtube": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://youtube.com"
-}
-]
-},
+  "open youtube": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://youtube.com"
+    }
+  },
 
-"open gmail": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://mail.google.com"
-}
-]
-},
+  "open gmail": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://mail.google.com"
+    }
+  },
 
-"open github": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://github.com"
-}
-]
-},
+  "open github": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://github.com"
+    }
+  },
 
-"open chatgpt": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://chatgpt.com"
-}
-]
-},
+  "open chatgpt": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://chatgpt.com"
+    }
+  },
 
-"open google": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://google.com"
-}
-]
-},
+  "open google": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://google.com"
+    }
+  },
 
-"open linkedin": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://linkedin.com"
-}
-]
-},
+  "open linkedin": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://linkedin.com"
+    }
+  },
 
-"open reddit": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://reddit.com"
-}
-]
-},
+  "open reddit": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://reddit.com"
+    }
+  },
 
-"open x": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://x.com"
-}
-]
-},
+  "open x": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://x.com"
+    }
+  },
 
-"open twitter": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://x.com"
-}
-]
-},
+  "open twitter": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://x.com"
+    }
+  },
 
-"open instagram": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://instagram.com"
-}
-]
-},
+  "open instagram": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://instagram.com"
+    }
+  },
 
-"open facebook": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://facebook.com"
-}
-]
-},
+  "open facebook": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://facebook.com"
+    }
+  },
 
-"open amazon": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://amazon.in"
-}
-]
-},
+  "open amazon": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://amazon.in"
+    }
+  },
 
-"open netflix": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://netflix.com"
-}
-]
-},
+  "open netflix": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://netflix.com"
+    }
+  },
 
-"open spotify": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://spotify.com"
-}
-]
-},
+  "open spotify": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://spotify.com"
+    }
+  },
 
-"open stackoverflow": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://stackoverflow.com"
-}
-]
-},
+  "open stackoverflow": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://stackoverflow.com"
+    }
+  },
 
-"open whatsapp": {
-"actions": [
-{
-"action": "open_url",
-"url": "https://web.whatsapp.com"
-}
-]
-}
+  "open whatsapp": {
+    "tool": "browser",
+    "function": "open_url",
+    "arguments": {
+      "url": "https://web.whatsapp.com"
+    }
+  }
 }

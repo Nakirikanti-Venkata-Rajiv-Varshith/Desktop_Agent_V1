@@ -1,62 +1,60 @@
-from llm.parser import ActionPlanSchema, ActionItem
-from executor.app_launcher import AppLauncher
-from executor.browser_controller import BrowserController
+from llm.parser import ToolPlan
+
+from tools.tool_executor.tool_executor import ToolExecutor
+
 from tools.logger import agent_logger
 
+
 class ActionExecutor:
-    """Sequential engine loop routing abstract tasks toward low-level sub-systems."""
-    
+
     def __init__(self):
-        self.launcher = AppLauncher()
-        self.browser = BrowserController()
 
-    def execute(self, plan: ActionPlanSchema, status_callback=None) -> bool:
-        """Iterates steps within thread barriers to protect UI stability flags."""
-        is_chat_only = (
-            len(plan.actions) == 1
-            and plan.actions[0].action == "chat"
-        )
-        if not plan.actions:
-            agent_logger.warning("Execution schema contains an empty action matrix.")
-            if status_callback: status_callback("Plan empty.")
-            return False
+        self.tool_executor = ToolExecutor()
 
-        for index, item in enumerate(plan.actions, start=1):
-            if item.action == "chat":
-                msg = item.response
-            else:
-                msg = f"Executing sub-task [{index}/{len(plan.actions)}]: {item.action.upper()}"
+    def execute(
+        self,
+        plan: ToolPlan,
+        status_callback=None
+    ) -> bool:
+
+        try:
+
+            msg = (
+                f"Executing Tool: "
+                f"{plan.tool}."
+                f"{plan.function}"
+            )
+
             agent_logger.info(msg)
-            if status_callback: status_callback(msg)
-            
-            success = self._dispatch_item(item)
-            if not success:
-                err_msg = f"Pipeline execution failed on step action: {item.action}"
-                agent_logger.error(err_msg)
-                if status_callback: status_callback(err_msg)
-                return False
-                
-        if not is_chat_only:
+
+            if status_callback:
+                status_callback(msg)
+
+            result = (
+                self.tool_executor.execute(
+                    tool=plan.tool,
+                    function=plan.function,
+                    arguments=plan.arguments
+                )
+            )
+
             if status_callback:
                 status_callback(
-                    "All actions completed successfully."
-                )
-
-        return True
-
-    def _dispatch_item(self, item: ActionItem) -> bool:
-        if item.action == "open_app":
-            return self.launcher.launch(item.app)
-        elif item.action == "open_url":
-            return self.browser.open_url(item.url)
-        elif item.action == "search":
-            return self.browser.search_google(item.query)
-        elif item.action == "chat":
-
-            if item.response:
-                agent_logger.info(
-                    f"Chat Response: {item.response}"
+                    str(result)
                 )
 
             return True
-        return False
+
+        except Exception as e:
+
+            err_msg = (
+                f"Tool Execution Failed: "
+                f"{str(e)}"
+            )
+
+            agent_logger.error(err_msg)
+
+            if status_callback:
+                status_callback(err_msg)
+
+            return False
