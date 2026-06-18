@@ -30,10 +30,11 @@ OLLAMA_MODEL = "qwen3:8b"
 # Operating System Execution Maps (Ubuntu Binaries)
 # ====================================================================
 # Native system call hooks utilized by subprocess.Popen
-CHROME_COMMAND = "google-chrome"
+# Swapped to "chromium" to match your target system installation cleanly
+CHROME_COMMAND = "chromium"
 FIREFOX_COMMAND = "firefox"
 TERMINAL_COMMAND = "gnome-terminal"
 VSCODE_COMMAND = "code"
 
 # Fallback browser target used when opening open-ended web lookups
-DEFAULT_BROWSER = "google-chrome"
+DEFAULT_BROWSER = "chromium"

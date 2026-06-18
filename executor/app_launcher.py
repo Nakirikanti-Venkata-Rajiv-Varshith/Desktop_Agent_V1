@@ -6,8 +6,12 @@ class AppLauncher:
     """Manages process spawning across standard local runtime applications."""
     
     def __init__(self):
+        # We explicitly map both 'chrome' and 'chromium' keys to the CHROME_COMMAND config
+        # variable (which you've set to "chromium"). This guarantees resilience regardless 
+        # of which name the local LLM decides to predict in its JSON output.
         self.app_map = {
             "chrome": CHROME_COMMAND,
+            "chromium": CHROME_COMMAND,
             "firefox": FIREFOX_COMMAND,
             "terminal": TERMINAL_COMMAND,
             "vscode": VSCODE_COMMAND
@@ -27,6 +31,7 @@ class AppLauncher:
             
         try:
             agent_logger.info(f"Spawning native subprocess: [{binary}]")
+            # shell=False (default behavior here) prevents shell injection attacks
             subprocess.Popen([binary], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             return True
         except Exception as e:

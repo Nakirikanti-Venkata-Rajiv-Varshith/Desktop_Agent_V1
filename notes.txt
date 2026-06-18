@@ -1,0 +1,37 @@
+## 1. Prerequisites (System Packages)
+Ubuntu requires explicit installation of core Python utilities and native GUI rendering libraries before installing the project packages. Run the following command block:
+
+sudo apt update && sudo apt install -y python3-pip python3-venv libxcb-cursor0
+
+
+
+2. Local LLM Setup (Ollama Engine)
+
+curl -fsSL [https://ollama.com/install.sh](https://ollama.com/install.sh) | sh
+
+
+
+3. Pull the Qwen3 8B Model:
+
+ollama pull qwen3:8b
+
+
+
+4. Python Virtual Environment (venv) Activation:
+
+cd Desktop_Agent_V1
+python3 -m venv .venv
+source .venv/bin/activate
+
+
+
+5. Install Project Requirements:
+
+pip install --upgrade pip
+pip install -r requirements.txt
+
+
+
+6. Launching the Agent:
+
+python app.py

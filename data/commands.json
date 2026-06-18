@@ -1,5 +1,6 @@
 {
   "chrome": "open_app",
+  "chromium": "open_app",
   "firefox": "open_app",
   "terminal": "open_app",
   "vscode": "open_app"
