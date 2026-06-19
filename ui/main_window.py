@@ -43,7 +43,7 @@ class AgentWorker(QThread):
                     "Valid payload compiled. Handing control over to executor..."
                 )
 
-                success = self.executor.execute(
+                success = self.executor.execute_task_plan(
                     plan,
                     status_callback=self.status_signal.emit
                 )

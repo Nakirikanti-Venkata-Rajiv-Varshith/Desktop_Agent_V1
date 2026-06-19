@@ -41,3 +41,9 @@ python app.py
 7. Have to install wcrtl
 
 sudo apt install wmctrl
+
+
+
+8. Copy all files into the files directory in before level
+
+cp -r ./* ../files/

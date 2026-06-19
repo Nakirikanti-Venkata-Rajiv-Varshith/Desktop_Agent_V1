@@ -1,9 +1,7 @@
-from llm.parser import ToolPlan
-
+from llm.parser import ToolPlan, TaskPlan
 from tools.tool_executor.tool_executor import ToolExecutor
-
 from tools.logger import agent_logger
-
+import time
 
 class ActionExecutor:
 
@@ -11,7 +9,7 @@ class ActionExecutor:
 
         self.tool_executor = ToolExecutor()
 
-    def execute(
+    def execute_single(
         self,
         plan: ToolPlan,
         status_callback=None
@@ -58,3 +56,26 @@ class ActionExecutor:
                 status_callback(err_msg)
 
             return False
+        
+    def execute_task_plan(
+        self,
+        task_plan: TaskPlan,
+        status_callback=None
+    ) -> bool:
+
+        overall_success = True
+
+        for step in task_plan.steps:
+
+            success = self.execute_single(
+                step,
+                status_callback
+            )
+
+            overall_success = (
+                overall_success and success
+            )
+
+            time.sleep(1)
+
+        return overall_success

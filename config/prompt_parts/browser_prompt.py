@@ -101,8 +101,31 @@ Output:
 }
 
 
+=========================================
+Example 3:
 
+User:
+Open chrome and then open youtube
 
+Output:
 
+{
+  "steps":[
+    {
+      "tool":"app",
+      "function":"open",
+      "arguments":{
+        "app":"chrome"
+      }
+    },
+    {
+      "tool":"browser",
+      "function":"open_url",
+      "arguments":{
+        "url":"https://youtube.com"
+      }
+    }
+  ]
+}
 
 """

@@ -1,5 +1,5 @@
 from llm.ollama_client import OllamaClient
-from llm.parser import PlanParser, ToolPlan
+from llm.parser import PlanParser, TaskPlan, ToolPlan
 from tools.logger import agent_logger
 from no_llm_needed.command_matcher import CommandMatcher
 
@@ -31,8 +31,12 @@ class TaskPlanner:
                 "Fast-path command matched."
             )
 
-            return ToolPlan(
-                **predefined
+            return TaskPlan(
+                steps=[
+                    ToolPlan(
+                        **predefined
+                    )
+                ]
             )
 
         raw_output = self.client.generate(
