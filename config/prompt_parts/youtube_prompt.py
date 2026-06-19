@@ -12,6 +12,8 @@ Functions:
 * get_title
 * subscribe
 * comment
+* like
+* remove_like
 
 Arguments for comment:
 {
@@ -40,5 +42,45 @@ Output:
 "arguments":{
     "text": "nice video"
 }
+}
+
+User:
+Like this video
+
+Output:
+{
+"tool":"youtube",
+"function":"like",
+"arguments":{}
+}
+
+User:
+Give this video a thumbs up
+
+Output:
+{
+"tool":"youtube",
+"function":"like",
+"arguments":{}
+}
+
+User:
+Unlike this video
+
+Output:
+{
+"tool":"youtube",
+"function":"remove_like",
+"arguments":{}
+}
+
+User:
+Remove my like from this video
+
+Output:
+{
+"tool":"youtube",
+"function":"remove_like",
+"arguments":{}
 }
 """

@@ -173,9 +173,7 @@ class YouTubeTool:
         )
     
     def comment(self, text: str):
-        """Scrolls down, targets the coordinates of the placeholder, types text via hardware keys, and submits."""
-        
-        # 1. Scroll cleanly to comment section header
+        """Scrolls down, targets the coordinates of the placeholder, types text via hardware keys, submits, waits 1s, and scrolls back up."""
         scroll_script = """
         (() => {
             const commentsHeader = document.querySelector('ytd-comments, #comments');
@@ -191,7 +189,6 @@ class YouTubeTool:
         self.client.send("Runtime.evaluate", {"expression": scroll_script, "returnByValue": True})
         time.sleep(3)
 
-        # 2. Get precise coordinates of the placeholder box
         coords_script = """
         (() => {
             const box = document.querySelector('#simplebox-placeholder, #simple-box, ytd-comment-simplebox-renderer');
@@ -210,10 +207,8 @@ class YouTubeTool:
         if not coords or coords['y'] < 0:
             return "FAILED_COORDINATES_INVALID_OR_OFFSCREEN"
             
-        # Ensure window has active context focus
         self.client.send("Runtime.evaluate", {"expression": "window.focus();"})
 
-        # 3. Native hardware mouse press down and up to activate the box
         self.client.send("Input.dispatchMouseEvent", {
             "type": "mousePressed",
             "x": coords["x"],
@@ -230,10 +225,8 @@ class YouTubeTool:
             "clickCount": 1
         })
 
-        # Wait for input text box to fully render and autofocus natively
         time.sleep(2.0)
 
-        # 4. Emulate hardware keyboard typing keystrokes
         for char in text:
             self.client.send("Input.dispatchKeyEvent", {
                 "type": "keyDown",
@@ -247,8 +240,6 @@ class YouTubeTool:
             
         time.sleep(1.5)
 
-        # 5. Emulate hardware Ctrl + Enter shortcut sequence to submit comment
-        # Control Down
         self.client.send("Input.dispatchKeyEvent", {
             "type": "keyDown",
             "modifiers": 2,
@@ -257,7 +248,6 @@ class YouTubeTool:
             "key": "Control"
         })
         
-        # Enter Tap Down/Up
         self.client.send("Input.dispatchKeyEvent", {
             "type": "keyDown",
             "modifiers": 2,
@@ -275,7 +265,6 @@ class YouTubeTool:
             "key": "Enter"
         })
         
-        # Control Up
         self.client.send("Input.dispatchKeyEvent", {
             "type": "keyUp",
             "modifiers": 0,
@@ -284,4 +273,64 @@ class YouTubeTool:
             "key": "Control"
         })
 
-        return "COMMENT_SUBMITTED_SUCCESSFULLY"
+        time.sleep(1.0)
+
+        scroll_back_script = """
+        (() => {
+            const videoPlayer = document.querySelector('video, #movie_player');
+            if (videoPlayer) {
+                videoPlayer.scrollIntoView({ block: "center", behavior: "smooth" });
+                return "SCROLLED_BACK_TO_VIDEO";
+            }
+            window.scrollTo(0, 0);
+            return "SCROLLED_BACK_FALLBACK";
+        })()
+        """
+        self.client.send("Runtime.evaluate", {"expression": scroll_back_script, "returnByValue": True})
+        time.sleep(1.0)
+
+        return "COMMENT_SUBMITTED_AND_RETURNED_TO_VIDEO"
+
+    def like(self):
+        """Finds and clicks the like button to like the current video."""
+        js_script = """
+        (() => {
+            const likeBtn = document.querySelector(
+                'ytd-watch-metadata ytd-like-button-renderer button[aria-label*="like this video"], ' +
+                'ytd-video-primary-info-renderer ytd-like-button-renderer button[aria-label*="like this video"], ' +
+                'button[aria-label*="like this video"]'
+            );
+            if (!likeBtn) return "LIKE_BUTTON_NOT_FOUND";
+            
+            if (likeBtn.getAttribute('aria-pressed') === 'true') {
+                return "ALREADY_LIKED";
+            }
+            
+            likeBtn.click();
+            return "LIKE_BUTTON_CLICKED_SUCCESSFULLY";
+        })()
+        """
+        res = self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
+        return res.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+
+    def remove_like(self):
+        """Finds the like button and removes the like if it was previously set."""
+        js_script = """
+        (() => {
+            const likeBtn = document.querySelector(
+                'ytd-watch-metadata ytd-like-button-renderer button[aria-label*="like this video"], ' +
+                'ytd-video-primary-info-renderer ytd-like-button-renderer button[aria-label*="like this video"], ' +
+                'button[aria-label*="like this video"]'
+            );
+            if (!likeBtn) return "LIKE_BUTTON_NOT_FOUND";
+            
+            if (likeBtn.getAttribute('aria-pressed') === 'false' || !likeBtn.getAttribute('aria-pressed')) {
+                return "VIDEO_NOT_LIKED_YET";
+            }
+            
+            likeBtn.click();
+            return "LIKE_REMOVED_SUCCESSFULLY";
+        })()
+        """
+        res = self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
+        return res.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
