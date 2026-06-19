@@ -4,6 +4,7 @@ from tools.file_tools.file_tool import FileTool
 from tools.app_tools.app_tool import AppTool
 from tools.chat_tools.chat_tool import ChatTool
 from tools.gui_tools.gui_tool import GUITool
+from tools.browser_tools.youtube_tool import YouTubeTool
 
 class ToolExecutor:
 
@@ -20,10 +21,14 @@ class ToolExecutor:
             "file": FileTool,
             "app": AppTool,
             "chat": ChatTool,
-            "gui": GUITool
+            "gui": GUITool,
+            "youtube": YouTubeTool
         }
 
         tool_class = tool_map.get(tool)
+
+        if tool == "youtube":
+            tool_class = tool_class()
 
         if not tool_class:
             raise ValueError(

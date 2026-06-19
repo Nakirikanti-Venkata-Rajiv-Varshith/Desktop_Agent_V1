@@ -641,3 +641,215 @@ steps
 2026-06-19 11:13:27,308 - INFO - Dispatching query to Ollama (qwen3:8b)...
 2026-06-19 11:13:31,211 - INFO - Executing Tool: system.ip_address
 2026-06-19 11:22:53,351 - INFO - Ollama model unloaded successfully.
+2026-06-19 11:40:06,333 - INFO - ========================================
+2026-06-19 11:40:06,333 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 11:40:06,333 - INFO - ========================================
+2026-06-19 11:40:06,396 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 11:40:12,354 - INFO - Planning requested context: 'open chromium'
+2026-06-19 11:40:12,354 - INFO - Fast-path command matched.
+2026-06-19 11:40:12,354 - INFO - Executing Tool: app.open
+2026-06-19 11:41:15,627 - INFO - Ollama model unloaded successfully.
+2026-06-19 11:43:50,294 - INFO - ========================================
+2026-06-19 11:43:50,295 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 11:43:50,295 - INFO - ========================================
+2026-06-19 11:43:50,364 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 11:43:59,648 - INFO - Planning requested context: 'open chromium'
+2026-06-19 11:43:59,648 - INFO - Fast-path command matched.
+2026-06-19 11:43:59,648 - INFO - Executing Tool: app.open
+2026-06-19 11:50:03,427 - INFO - Planning requested context: 'open chromium'
+2026-06-19 11:50:03,427 - INFO - Fast-path command matched.
+2026-06-19 11:50:03,427 - INFO - Executing Tool: app.open
+2026-06-19 11:51:04,950 - INFO - Ollama model unloaded successfully.
+2026-06-19 11:51:09,993 - INFO - ========================================
+2026-06-19 11:51:09,993 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 11:51:09,993 - INFO - ========================================
+2026-06-19 11:51:10,054 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 11:51:15,900 - INFO - Planning requested context: 'open chromium'
+2026-06-19 11:51:15,900 - INFO - Fast-path command matched.
+2026-06-19 11:51:15,900 - INFO - Executing Tool: app.open
+2026-06-19 11:54:49,731 - INFO - Ollama model unloaded successfully.
+2026-06-19 11:55:18,678 - INFO - ========================================
+2026-06-19 11:55:18,679 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 11:55:18,679 - INFO - ========================================
+2026-06-19 11:55:18,743 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 11:55:24,280 - INFO - Planning requested context: 'open chromium'
+2026-06-19 11:55:24,281 - INFO - Fast-path command matched.
+2026-06-19 11:55:24,281 - INFO - Executing Tool: app.open
+2026-06-19 11:57:16,711 - INFO - Ollama model unloaded successfully.
+2026-06-19 11:57:21,977 - INFO - ========================================
+2026-06-19 11:57:21,977 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 11:57:21,977 - INFO - ========================================
+2026-06-19 11:57:22,042 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 11:57:27,035 - INFO - Planning requested context: 'open chromium'
+2026-06-19 11:57:27,035 - INFO - Fast-path command matched.
+2026-06-19 11:57:27,036 - INFO - Executing Tool: app.open
+2026-06-19 11:59:55,800 - INFO - Ollama model unloaded successfully.
+2026-06-19 12:01:47,104 - INFO - ========================================
+2026-06-19 12:01:47,104 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 12:01:47,104 - INFO - ========================================
+2026-06-19 12:01:47,166 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 12:06:19,451 - INFO - Ollama model unloaded successfully.
+2026-06-19 12:06:38,472 - INFO - ========================================
+2026-06-19 12:06:38,472 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 12:06:38,472 - INFO - ========================================
+2026-06-19 12:06:38,536 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 12:06:47,984 - INFO - Planning requested context: 'open chromium'
+2026-06-19 12:06:47,985 - INFO - Fast-path command matched.
+2026-06-19 12:06:47,985 - INFO - Executing Tool: app.open
+2026-06-19 12:19:00,966 - INFO - Ollama model unloaded successfully.
+2026-06-19 12:19:15,353 - INFO - ========================================
+2026-06-19 12:19:15,354 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 12:19:15,354 - INFO - ========================================
+2026-06-19 12:19:15,420 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 12:22:29,665 - INFO - Ollama model unloaded successfully.
+2026-06-19 12:23:09,632 - INFO - ========================================
+2026-06-19 12:23:09,632 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 12:23:09,632 - INFO - ========================================
+2026-06-19 12:23:09,696 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 13:54:36,699 - INFO - Ollama model unloaded successfully.
+2026-06-19 14:26:55,340 - INFO - Planning requested context: 'pause video'
+2026-06-19 14:26:55,340 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:27:21,102 - INFO - Planning requested context: 'pause video'
+2026-06-19 14:27:21,103 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:28:12,492 - INFO - Planning requested context: 'pause video'
+2026-06-19 14:28:12,492 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:28:46,897 - INFO - Planning requested context: 'resume video'
+2026-06-19 14:28:46,897 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:29:44,010 - INFO - Planning requested context: 'search agentic ai on youtube'
+2026-06-19 14:29:44,010 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:30:46,154 - INFO - Planning requested context: 'play first video'
+2026-06-19 14:30:46,154 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:32:37,193 - INFO - ========================================
+2026-06-19 14:32:37,193 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 14:32:37,193 - INFO - ========================================
+2026-06-19 14:32:37,255 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 14:32:49,238 - INFO - Planning requested context: 'open chrome'
+2026-06-19 14:32:49,239 - INFO - Fast-path command matched.
+2026-06-19 14:32:49,239 - INFO - Executing Tool: app.open
+2026-06-19 14:32:51,240 - INFO - Planning requested context: 'open youtube'
+2026-06-19 14:32:51,240 - INFO - Fast-path command matched.
+2026-06-19 14:32:51,241 - INFO - Executing Tool: browser.open_url
+2026-06-19 14:33:02,379 - INFO - Planning requested context: 'search for agentic ai and'
+2026-06-19 14:33:02,379 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:33:20,740 - INFO - Executing Tool: browser.search
+2026-06-19 14:33:45,839 - INFO - Planning requested context: 'open youtube'
+2026-06-19 14:33:45,839 - INFO - Fast-path command matched.
+2026-06-19 14:33:45,839 - INFO - Executing Tool: browser.open_url
+2026-06-19 14:33:49,358 - INFO - Planning requested context: 'search for agentic ai in youtube'
+2026-06-19 14:33:49,359 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:33:52,236 - INFO - Executing Tool: youtube.search
+2026-06-19 14:33:52,237 - ERROR - Tool Execution Failed: HTTPConnectionPool(host='localhost', port=9222): Max retries exceeded with url: /json (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9222): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-06-19 14:34:29,216 - INFO - Planning requested context: 'search gpt in youtube'
+2026-06-19 14:34:29,216 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 14:34:32,105 - INFO - Executing Tool: youtube.search
+2026-06-19 14:34:32,106 - ERROR - Tool Execution Failed: HTTPConnectionPool(host='localhost', port=9222): Max retries exceeded with url: /json (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9222): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-06-19 14:39:57,796 - INFO - Ollama model unloaded successfully.
+2026-06-19 14:40:05,100 - INFO - ========================================
+2026-06-19 14:40:05,100 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 14:40:05,100 - INFO - ========================================
+2026-06-19 14:40:05,162 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 15:12:14,966 - INFO - Planning requested context: 'open youtube'
+2026-06-19 15:12:14,966 - INFO - Fast-path command matched.
+2026-06-19 15:12:14,966 - INFO - Executing Tool: app.open
+2026-06-19 15:12:16,967 - INFO - Planning requested context: 'search agentic ai in youtube'
+2026-06-19 15:12:16,968 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 15:12:26,975 - INFO - Executing Tool: youtube.search
+2026-06-19 15:12:26,976 - ERROR - Tool Execution Failed: HTTPConnectionPool(host='localhost', port=9222): Max retries exceeded with url: /json (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9222): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-06-19 15:46:06,194 - INFO - ========================================
+2026-06-19 15:46:06,195 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 15:46:06,195 - INFO - ========================================
+2026-06-19 15:46:09,262 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 15:48:28,165 - INFO - Ollama model unloaded successfully.
+2026-06-19 15:48:31,532 - INFO - ========================================
+2026-06-19 15:48:31,532 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 15:48:31,532 - INFO - ========================================
+2026-06-19 15:48:31,594 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 15:48:44,188 - INFO - Planning requested context: 'open chrome'
+2026-06-19 15:48:44,188 - INFO - Fast-path command matched.
+2026-06-19 15:48:44,189 - INFO - Executing Tool: app.open
+2026-06-19 15:49:01,306 - INFO - Planning requested context: 'open youtube'
+2026-06-19 15:49:01,306 - INFO - Fast-path command matched.
+2026-06-19 15:49:01,306 - INFO - Executing Tool: app.open
+2026-06-19 15:52:54,836 - INFO - Ollama model unloaded successfully.
+2026-06-19 15:53:02,673 - INFO - ========================================
+2026-06-19 15:53:02,673 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 15:53:02,673 - INFO - ========================================
+2026-06-19 15:53:02,742 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 15:53:10,657 - INFO - Planning requested context: 'open chromium'
+2026-06-19 15:53:10,657 - INFO - Fast-path command matched.
+2026-06-19 15:53:10,658 - INFO - Executing Tool: app.open
+2026-06-19 15:54:36,212 - INFO - ========================================
+2026-06-19 15:54:36,212 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 15:54:36,212 - INFO - ========================================
+2026-06-19 15:54:36,276 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 15:54:41,298 - INFO - Planning requested context: 'open youtube'
+2026-06-19 15:54:41,299 - INFO - Fast-path command matched.
+2026-06-19 15:54:41,299 - INFO - Executing Tool: browser.open_url
+2026-06-19 15:54:52,368 - INFO - Ollama model unloaded successfully.
+2026-06-19 16:34:48,371 - INFO - ========================================
+2026-06-19 16:34:48,371 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 16:34:48,371 - INFO - ========================================
+2026-06-19 16:34:51,442 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 16:35:05,601 - INFO - Planning requested context: 'open youtube'
+2026-06-19 16:35:05,602 - INFO - Fast-path command matched.
+2026-06-19 16:35:05,602 - INFO - Executing Tool: browser.open_url
+2026-06-19 16:35:36,411 - INFO - Planning requested context: 'search agentic ai in youtube'
+2026-06-19 16:35:36,411 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:35:47,652 - INFO - Executing Tool: youtube.search
+2026-06-19 16:36:01,436 - INFO - Planning requested context: 'play first video'
+2026-06-19 16:36:01,436 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:36:03,880 - INFO - Executing Tool: youtube.play_first
+2026-06-19 16:36:18,457 - INFO - Planning requested context: 'play video'
+2026-06-19 16:36:18,457 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:36:28,131 - INFO - Executing Tool: youtube.play_first
+2026-06-19 16:36:43,184 - INFO - Planning requested context: 'pause the currrent video'
+2026-06-19 16:36:43,185 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:36:46,615 - INFO - Executing Tool: youtube.pause
+2026-06-19 16:37:01,218 - INFO - Planning requested context: 'resume the present video'
+2026-06-19 16:37:01,218 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:37:04,075 - INFO - Executing Tool: youtube.resume
+2026-06-19 16:37:10,633 - INFO - Planning requested context: 'close tab'
+2026-06-19 16:37:10,633 - INFO - Fast-path command matched.
+2026-06-19 16:37:10,633 - INFO - Executing Tool: browser.close_tab
+2026-06-19 16:37:19,556 - INFO - Ollama model unloaded successfully.
+2026-06-19 16:45:38,563 - INFO - ========================================
+2026-06-19 16:45:38,563 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 16:45:38,563 - INFO - ========================================
+2026-06-19 16:45:41,637 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 16:46:08,001 - INFO - Planning requested context: 'open youtube'
+2026-06-19 16:46:08,001 - INFO - Fast-path command matched.
+2026-06-19 16:46:08,001 - INFO - Executing Tool: browser.open_url
+2026-06-19 16:46:11,522 - INFO - Planning requested context: 'search for open ai in youtube'
+2026-06-19 16:46:11,522 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:46:21,613 - INFO - Executing Tool: youtube.search
+2026-06-19 16:46:23,633 - INFO - Planning requested context: 'play the first video'
+2026-06-19 16:46:23,633 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:46:27,203 - INFO - Executing Tool: youtube.play_first
+2026-06-19 16:46:48,384 - INFO - Ollama model unloaded successfully.
+2026-06-19 16:49:36,398 - INFO - ========================================
+2026-06-19 16:49:36,398 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 16:49:36,399 - INFO - ========================================
+2026-06-19 16:49:39,470 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 16:50:05,198 - INFO - Planning requested context: 'open youtube'
+2026-06-19 16:50:05,198 - INFO - Fast-path command matched.
+2026-06-19 16:50:05,198 - INFO - Executing Tool: browser.open_url
+2026-06-19 16:50:08,720 - INFO - Planning requested context: 'search open ai'
+2026-06-19 16:50:08,720 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:50:18,431 - INFO - Executing Tool: youtube.search
+2026-06-19 16:50:20,450 - INFO - Planning requested context: 'play first video'
+2026-06-19 16:50:20,450 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:50:22,832 - INFO - Executing Tool: youtube.play_first
+2026-06-19 16:50:38,748 - INFO - Ollama model unloaded successfully.
+2026-06-19 16:50:52,637 - INFO - ========================================
+2026-06-19 16:50:52,637 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 16:50:52,637 - INFO - ========================================
+2026-06-19 16:50:55,704 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 16:51:09,224 - INFO - Planning requested context: 'open youtube search open ai'
+2026-06-19 16:51:09,225 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:51:21,464 - INFO - Executing Tool: youtube.search
+2026-06-19 16:51:21,466 - ERROR - Tool Execution Failed: Could not reach Chromium debug port 9222. Is browser running?
+2026-06-19 16:51:23,466 - INFO - Planning requested context: 'play first video'
+2026-06-19 16:51:23,467 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 16:51:25,852 - INFO - Executing Tool: youtube.play_first
+2026-06-19 16:51:25,853 - ERROR - Tool Execution Failed: Could not reach Chromium debug port 9222. Is browser running?
+2026-06-19 16:51:40,202 - INFO - Ollama model unloaded successfully.

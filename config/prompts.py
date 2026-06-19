@@ -6,6 +6,7 @@ from config.prompt_parts.file_prompt import FILE_PROMPT
 from config.prompt_parts.chat_prompt import CHAT_PROMPT
 from config.prompt_parts.gui_prompt import GUI_PROMPT
 from config.prompt_parts.examples_prompt import EXAMPLES_PROMPT
+from config.prompt_parts.youtube_prompt import YOUTUBE_PROMPT
 
 
 SYSTEM_PROMPT = "\n".join([
@@ -16,5 +17,6 @@ SYSTEM_PROMPT = "\n".join([
     FILE_PROMPT,
     CHAT_PROMPT,
     GUI_PROMPT,
-    EXAMPLES_PROMPT
+    EXAMPLES_PROMPT,
+    YOUTUBE_PROMPT,
 ])

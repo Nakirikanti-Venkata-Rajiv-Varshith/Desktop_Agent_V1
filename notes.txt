@@ -46,4 +46,4 @@ sudo apt install wmctrl
 
 8. Copy all files into the files directory in before level
 
-cp -r ./* ../files/
+find . -type f ! -path '*/.*' ! -path '*/__pycache__/*' ! -name '__init__.py' -exec cp --update=none {} ../files/ \;
