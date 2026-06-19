@@ -10,76 +10,35 @@ Functions:
 * pause
 * resume
 * get_title
+* subscribe
+* comment
+
+Arguments for comment:
+{
+  "text": "your comment string"
+}
 
 Examples:
 
 User:
- open youtube
+Subscribe to this channel
 
 Output:
-
-{
-  "tool":"youtube",
-  "function":"open",
-  "arguments":{}
-}
-
-
-User:
-Search agentic ai on youtube
-
-Output:
-
 {
 "tool":"youtube",
-"function":"search",
+"function":"subscribe",
+"arguments":{}
+}
+
+User:
+Comment nice video on youtube
+
+Output:
+{
+"tool":"youtube",
+"function":"comment",
 "arguments":{
-    "query":"agentic ai"
-}
-}
-
-User:
-Play first video
-
-Output:
-
-{
-"tool":"youtube",
-"function":"play_first",
-"arguments":{}
-}
-
-User:
-Pause video
-
-Output:
-
-{
-"tool":"youtube",
-"function":"pause",
-"arguments":{}
-}
-
-User:
-Resume video
-
-Output:
-
-{
-"tool":"youtube",
-"function":"resume",
-"arguments":{}
-}
-
-User:
-What video is playing?
-
-Output:
-
-{
-"tool":"youtube",
-"function":"get_title",
-"arguments":{}
+    "text": "nice video"
 }
 }
 """
