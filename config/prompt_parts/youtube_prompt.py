@@ -22,7 +22,19 @@ Functions:
 * decrease_volume
 * set_playback_speed
 * set_video_quality
+* navigate_to_panel
+* open_notifications
+* search_query
 
+Arguments for navigate_to_panel:
+{
+  "panel_name": string ("home", "shorts", "subscriptions", "your channel", "history", "playlists", "watch later", "liked videos", "downloads")
+}
+
+Arguments for search_query:
+{
+  "query": string (e.g., "lofi hip hop radio", "python tutorials")
+}
 Arguments for set_video_quality:
 {
   "quality": string (e.g., "144p", "360p", "720p", "1080p", "highest", "lowest")
@@ -305,6 +317,18 @@ Output:
   "function": "set_video_quality",
   "arguments": {
     "quality": "480p"
+  }
+}
+
+User:
+Show me what channels I am subscribed to right now
+
+Output:
+{
+  "tool": "youtube",
+  "function": "navigate_to_panel",
+  "arguments": {
+    "panel_name": "subscriptions"
   }
 }
 """

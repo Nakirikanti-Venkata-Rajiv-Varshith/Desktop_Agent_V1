@@ -569,3 +569,53 @@ class YouTubeTool:
         """
         response = self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
         return response.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+    
+    def navigate_to_panel(self, panel_name: str):
+        """
+        Navigates directly to standard YouTube views using uniform layout URLs.
+        Accepts panel names like: 'home', 'shorts', 'subscriptions', 'your channel', 
+        'history', 'playlists', 'watch later', 'liked videos', or 'downloads'.
+        """
+        destinations = {
+            "home": "https://www.youtube.com/",
+            "shorts": "https://www.youtube.com/shorts",
+            "subscriptions": "https://www.youtube.com/feed/subscriptions",
+            "your channel": "https://www.youtube.com/feed/you",
+            "history": "https://www.youtube.com/feed/history",
+            "playlists": "https://www.youtube.com/feed/playlists",
+            "watch later": "https://www.youtube.com/playlist?list=WL",
+            "liked videos": "https://www.youtube.com/playlist?list=LL",
+            "downloads": "https://www.youtube.com/feed/downloads"
+        }
+        
+        target = str(panel_name).strip().lower()
+        if target not in destinations:
+            return f"UNKNOWN_PANEL_REQUESTED: {panel_name}"
+            
+        url = destinations[target]
+        self.client.send("Runtime.evaluate", {"expression": f'window.location.href = "{url}";', "returnByValue": True})
+        return f"NAVIGATING_TO_{target.upper()}"
+
+    def open_notifications(self):
+        """Triggers the notifications overlay tray via DOM interaction layer or creator route fallback."""
+        js_notifications = """
+        (() => {
+            const notifyBtn = document.querySelector('button[aria-label="Notifications"], ytd-notification-topbar-button-renderer button');
+            if (notifyBtn) {
+                notifyBtn.click();
+                return "SUCCESSFULLY_OPENED_NOTIFICATIONS_TRAY";
+            }
+            window.location.href = "https://www.youtube.com/dashboard?o=U";
+            return "FALLBACK_ROUTING_TO_CREATOR_DASHBOARD";
+        })()
+        """
+        response = self.client.send("Runtime.evaluate", {"expression": js_notifications, "returnByValue": True})
+        return response.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+
+    def search_query(self, query: str):
+        """Instructs YouTube's search engine to directly execute and populate a specific text query string."""
+        import urllib.parse
+        encoded_query = urllib.parse.quote(str(query).strip())
+        search_url = f"https://www.youtube.com/results?search_query={encoded_query}"
+        self.client.send("Runtime.evaluate", {"expression": f'window.location.href = "{search_url}";', "returnByValue": True})
+        return f"EXECUTING_SEARCH_FOR_{query.upper()}"
