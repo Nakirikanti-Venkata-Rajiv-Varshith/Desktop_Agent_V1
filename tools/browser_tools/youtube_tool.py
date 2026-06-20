@@ -23,6 +23,94 @@ class YouTubeTool:
 
         return "YouTube Opened"
 
+    def skip_ad(self):
+        """Locates the coordinates of the active skip ad button and performs a native hardware click."""
+        coords_script = """
+        (() => {
+            const mainSkipSelectors = [
+                '.ytp-skip-ad-button-modern',
+                '.ytp-skip-ad-button',
+                '.ytp-ad-skip-button-modern',
+                '.ytp-ad-skip-button'
+            ];
+            
+            const player = document.querySelector('.html5-video-player');
+            if (player && !player.classList.contains('ad-showing')) {
+                return "AD_ENDED_NATURALLY";
+            }
+
+            for (const selector of mainSkipSelectors) {
+                const btn = document.querySelector(selector);
+                if (btn) {
+                    const style = window.getComputedStyle(btn);
+                    if (style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0') {
+                        if (btn.offsetHeight > 0 && btn.offsetWidth > 0) {
+                            const rect = btn.getBoundingClientRect();
+                            return {
+                                x: Math.round(rect.left + rect.width / 2),
+                                y: Math.round(rect.top + rect.height / 2)
+                            };
+                        }
+                    }
+                }
+            }
+            return "STILL_COUNTING_DOWN";
+        })()
+        """
+        
+        max_wait_time = 45
+        start_time = time.time()
+        coords = None
+        
+        while (time.time() - start_time) < max_wait_time:
+            loop_res = self.client.send("Runtime.evaluate", {"expression": coords_script, "returnByValue": True})
+            status = loop_res.get("result", {}).get("result", {}) or {}
+            val = status.get("value")
+            
+            if isinstance(val, dict) and "x" in val:
+                coords = val
+                break
+            elif val == "AD_ENDED_NATURALLY":
+                return "AD_CONCLUDED_WITHOUT_CLICK"
+                
+            time.sleep(1.0)
+        else:
+            return "SKIP_AD_TIMEOUT"
+
+        # Dispatch native hardware click actions sequence
+        self.client.send("Runtime.evaluate", {"expression": "window.focus();"})
+        
+        self.client.send("Input.dispatchMouseEvent", {
+            "type": "mousePressed",
+            "x": coords["x"],
+            "y": coords["y"],
+            "button": "left",
+            "clickCount": 1
+        })
+        time.sleep(0.1)
+        self.client.send("Input.dispatchMouseEvent", {
+            "type": "mouseReleased",
+            "x": coords["x"],
+            "y": coords["y"],
+            "button": "left",
+            "clickCount": 1
+        })
+
+        # Anti-Pause check: Make sure the video keeps moving after the button clears
+        time.sleep(0.5)
+        force_play_script = """
+        (() => {
+            const video = document.querySelector('video');
+            if (video && video.paused) {
+                video.play();
+                return "FORCED_PLAYBACK";
+            }
+            return "ALREADY_PLAYING";
+        })()
+        """
+        self.client.send("Runtime.evaluate", {"expression": force_play_script, "returnByValue": True})
+        return "AD_SKIPPED_SUCCESSFULLY"
+
     def pause(self):
         return self.client.send(
             "Runtime.evaluate",
@@ -104,9 +192,11 @@ class YouTubeTool:
             {
                 "expression": """
                 (() => {
-                    const firstVideo = document.querySelector('ytd-video-renderer a#video-title');
+                    const firstVideo = document.querySelector(
+                        'ytd-video-renderer a#video-title, ytd-rich-item-renderer a#video-title-link, ytd-grid-video-renderer a#video-title'
+                    );
                     if (!firstVideo) return "VIDEO_NOT_FOUND";
-                    window.location = firstVideo.href;
+                    firstVideo.click();
                     return firstVideo.href;
                 })()
                 """,
@@ -118,32 +208,7 @@ class YouTubeTool:
         if val == "VIDEO_NOT_FOUND":
             return "VIDEO_NOT_FOUND"
 
-        time.sleep(3)
-
-        play_trigger = self.client.send(
-            "Runtime.evaluate",
-            {
-                "expression": """
-                (() => {
-                    const video = document.querySelector('video');
-                    if (!video) return "VIDEO_ELEMENT_NOT_FOUND";
-                    
-                    video.play();
-                    
-                    if (video.paused) {
-                        video.muted = true; 
-                        video.play();
-                        return "PLAYING_MUTED_FALLBACK";
-                    }
-                    
-                    return "PLAYING";
-                })()
-                """,
-                "returnByValue": True
-            }
-        )
-
-        return f"Navigated to {val} and triggered playback engine."
+        return f"Navigated to video link successfully."
     
     def subscribe(self):
         """Finds and clicks the subscribe button on the current video page."""
@@ -334,3 +399,39 @@ class YouTubeTool:
         """
         res = self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
         return res.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+    
+    def skip_forward(self, seconds: int):
+        """Jumps the video forward instantly by the specified number of seconds."""
+        js_script = f"""
+        (() => {{
+            const video = document.querySelector('video');
+            if (!video) return "VIDEO_ELEMENT_NOT_FOUND";
+            
+            let targetTime = video.currentTime + {seconds};
+            if (targetTime > video.duration) targetTime = video.duration;
+            
+            video.currentTime = targetTime;
+            
+            if (video.paused) video.play();
+            return "SKIPPED_FORWARD_" + {seconds} + "_SECONDS";
+        }})()
+        """
+        return self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
+
+    def skip_backward(self, seconds: int):
+        """Jumps the video backward instantly by the specified number of seconds."""
+        js_script = f"""
+        (() => {{
+            const video = document.querySelector('video');
+            if (!video) return "VIDEO_ELEMENT_NOT_FOUND";
+            
+            let targetTime = video.currentTime - {seconds};
+            if (targetTime < 0) targetTime = 0;
+            
+            video.currentTime = targetTime;
+            
+            if (video.paused) video.play();
+            return "SKIPPED_BACKWARD_" + {seconds} + "_SECONDS";
+        }})()
+        """
+        return self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})

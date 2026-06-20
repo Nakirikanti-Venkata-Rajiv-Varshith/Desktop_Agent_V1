@@ -1025,3 +1025,157 @@ steps
 2026-06-19 18:18:07,930 - INFO - Dispatching query to Ollama (qwen3:8b)...
 2026-06-19 18:18:17,778 - INFO - Executing Tool: system.current_time
 2026-06-19 18:18:23,486 - INFO - Ollama model unloaded successfully.
+2026-06-19 18:44:59,451 - INFO - ========================================
+2026-06-19 18:44:59,451 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 18:44:59,451 - INFO - ========================================
+2026-06-19 18:45:02,518 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 18:46:20,431 - INFO - Planning requested context: 'open youtube'
+2026-06-19 18:46:20,431 - INFO - Fast-path command matched.
+2026-06-19 18:46:20,431 - INFO - Executing Tool: browser.open_url
+2026-06-19 18:46:23,951 - INFO - Planning requested context: 'search jai balaya song'
+2026-06-19 18:46:23,952 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 18:46:34,643 - INFO - Executing Tool: youtube.search
+2026-06-19 18:46:36,663 - INFO - Planning requested context: 'play first song'
+2026-06-19 18:46:36,664 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 18:46:41,296 - INFO - Executing Tool: youtube.play_first
+2026-06-19 18:46:46,356 - INFO - Planning requested context: 'comment jai balaya'
+2026-06-19 18:46:46,356 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 18:46:53,896 - INFO - Executing Tool: youtube.comment
+2026-06-19 18:47:43,299 - INFO - Planning requested context: 'open youtube'
+2026-06-19 18:47:43,299 - INFO - Fast-path command matched.
+2026-06-19 18:47:43,300 - INFO - Executing Tool: browser.open_url
+2026-06-19 18:47:46,817 - INFO - Planning requested context: 'search jai balaya song'
+2026-06-19 18:47:46,817 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 18:47:50,331 - INFO - Executing Tool: youtube.search
+2026-06-19 18:47:52,353 - INFO - Planning requested context: 'play first song'
+2026-06-19 18:47:52,353 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 18:47:56,953 - INFO - Executing Tool: youtube.play_first
+2026-06-19 18:48:01,989 - INFO - Planning requested context: 'comment jai balaya'
+2026-06-19 18:48:01,990 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 18:48:09,538 - INFO - Executing Tool: youtube.comment
+2026-06-19 18:48:34,514 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:31:48,187 - INFO - ========================================
+2026-06-19 20:31:48,187 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:31:48,187 - INFO - ========================================
+2026-06-19 20:31:51,257 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:32:15,879 - INFO - Planning requested context: 'open youtube'
+2026-06-19 20:32:15,879 - INFO - Fast-path command matched.
+2026-06-19 20:32:15,879 - INFO - Executing Tool: browser.open_url
+2026-06-19 20:32:19,397 - INFO - Planning requested context: 'search believer video song'
+2026-06-19 20:32:19,398 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:32:32,275 - INFO - Executing Tool: youtube.search
+2026-06-19 20:32:34,296 - INFO - Planning requested context: 'play first video'
+2026-06-19 20:32:34,296 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:32:37,368 - INFO - Executing Tool: youtube.play_first
+2026-06-19 20:33:34,655 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:37:22,722 - INFO - ========================================
+2026-06-19 20:37:22,722 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:37:22,722 - INFO - ========================================
+2026-06-19 20:37:25,905 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:38:01,413 - INFO - Planning requested context: 'open youtube'
+2026-06-19 20:38:01,414 - INFO - Fast-path command matched.
+2026-06-19 20:38:01,414 - INFO - Executing Tool: browser.open_url
+2026-06-19 20:38:04,939 - INFO - Planning requested context: 'search startboy video song'
+2026-06-19 20:38:04,939 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:38:14,449 - INFO - Executing Tool: youtube.search
+2026-06-19 20:38:16,470 - INFO - Planning requested context: 'play first video'
+2026-06-19 20:38:16,471 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:38:19,481 - INFO - Executing Tool: youtube.play_first
+2026-06-19 20:41:00,044 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:41:02,562 - INFO - ========================================
+2026-06-19 20:41:02,562 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:41:02,562 - INFO - ========================================
+2026-06-19 20:41:02,643 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:41:11,048 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:41:13,304 - INFO - ========================================
+2026-06-19 20:41:13,305 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:41:13,305 - INFO - ========================================
+2026-06-19 20:41:16,379 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:41:35,487 - INFO - Planning requested context: 'open youtube'
+2026-06-19 20:41:35,488 - INFO - Fast-path command matched.
+2026-06-19 20:41:35,488 - INFO - Executing Tool: browser.open_url
+2026-06-19 20:41:39,009 - INFO - Planning requested context: 'search start boy video'
+2026-06-19 20:41:39,009 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:41:51,248 - INFO - Executing Tool: youtube.search
+2026-06-19 20:41:53,270 - INFO - Planning requested context: 'play first video'
+2026-06-19 20:41:53,270 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:41:56,260 - INFO - Executing Tool: youtube.play_first
+2026-06-19 20:45:39,667 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:45:43,299 - INFO - ========================================
+2026-06-19 20:45:43,299 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:45:43,299 - INFO - ========================================
+2026-06-19 20:45:43,362 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:45:50,267 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:45:52,093 - INFO - ========================================
+2026-06-19 20:45:52,093 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:45:52,093 - INFO - ========================================
+2026-06-19 20:45:55,163 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:46:22,543 - INFO - Planning requested context: 'open youtube'
+2026-06-19 20:46:22,543 - INFO - Fast-path command matched.
+2026-06-19 20:46:22,543 - INFO - Executing Tool: browser.open_url
+2026-06-19 20:46:26,063 - INFO - Planning requested context: 'search shape of you video song'
+2026-06-19 20:46:26,063 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:46:35,876 - INFO - Executing Tool: youtube.search
+2026-06-19 20:46:37,899 - INFO - Planning requested context: 'play first video'
+2026-06-19 20:46:37,900 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:46:40,906 - INFO - Executing Tool: youtube.play_first
+2026-06-19 20:48:15,669 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:52:57,641 - INFO - ========================================
+2026-06-19 20:52:57,641 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:52:57,641 - INFO - ========================================
+2026-06-19 20:53:00,708 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:53:24,211 - INFO - Planning requested context: 'open youtube'
+2026-06-19 20:53:24,211 - INFO - Fast-path command matched.
+2026-06-19 20:53:24,212 - INFO - Executing Tool: browser.open_url
+2026-06-19 20:53:27,730 - INFO - Planning requested context: 'search star boy video song'
+2026-06-19 20:53:27,730 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:53:54,186 - INFO - Executing Tool: youtube.search
+2026-06-19 20:53:56,208 - INFO - Planning requested context: 'play first video'
+2026-06-19 20:53:56,208 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:53:59,205 - INFO - Executing Tool: youtube.play_first
+2026-06-19 20:55:26,262 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:55:44,624 - INFO - ========================================
+2026-06-19 20:55:44,624 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:55:44,624 - INFO - ========================================
+2026-06-19 20:55:44,688 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:55:52,244 - INFO - Ollama model unloaded successfully.
+2026-06-19 20:58:29,001 - INFO - ========================================
+2026-06-19 20:58:29,001 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 20:58:29,001 - INFO - ========================================
+2026-06-19 20:58:32,070 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 20:58:48,465 - INFO - Planning requested context: 'open youtube'
+2026-06-19 20:58:48,465 - INFO - Fast-path command matched.
+2026-06-19 20:58:48,465 - INFO - Executing Tool: browser.open_url
+2026-06-19 20:58:51,986 - INFO - Planning requested context: 'search beat it video song'
+2026-06-19 20:58:51,987 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:59:02,592 - INFO - Executing Tool: youtube.search
+2026-06-19 20:59:04,612 - INFO - Planning requested context: 'play first video'
+2026-06-19 20:59:04,612 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 20:59:07,607 - INFO - Executing Tool: youtube.play_first
+2026-06-19 21:00:46,261 - INFO - Ollama model unloaded successfully.
+2026-06-19 21:09:42,082 - INFO - ========================================
+2026-06-19 21:09:42,083 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-19 21:09:42,083 - INFO - ========================================
+2026-06-19 21:09:45,149 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-19 21:09:52,860 - INFO - Planning requested context: 'open yt'
+2026-06-19 21:09:52,860 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:10:06,891 - INFO - Executing Tool: browser.open_url
+2026-06-19 21:10:22,227 - INFO - Planning requested context: 'search shape of you song'
+2026-06-19 21:10:22,227 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:10:25,638 - INFO - Executing Tool: youtube.search
+2026-06-19 21:10:33,685 - INFO - Planning requested context: 'play first video'
+2026-06-19 21:10:33,685 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:10:35,855 - INFO - Executing Tool: youtube.play_first
+2026-06-19 21:10:43,715 - INFO - Planning requested context: 'skip ad'
+2026-06-19 21:10:43,715 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:10:47,703 - INFO - Executing Tool: youtube.skip_forward
+2026-06-19 21:11:12,514 - INFO - Planning requested context: 'skip ad'
+2026-06-19 21:11:12,515 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:11:16,667 - INFO - Executing Tool: youtube.skip_forward
+2026-06-19 21:11:28,310 - INFO - Planning requested context: 'skip backward 30sec'
+2026-06-19 21:11:28,310 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:11:31,926 - INFO - Executing Tool: youtube.skip_backward
+2026-06-19 21:11:45,559 - INFO - Planning requested context: 'skip 30sec backward'
+2026-06-19 21:11:45,560 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-19 21:11:48,981 - INFO - Executing Tool: youtube.skip_backward
+2026-06-19 21:13:03,536 - INFO - Ollama model unloaded successfully.
