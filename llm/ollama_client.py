@@ -31,7 +31,7 @@ class OllamaClient:
             response = requests.post(
                 self.url,
                 json=payload,
-                timeout=30
+                timeout=60
             )
 
             response.raise_for_status()

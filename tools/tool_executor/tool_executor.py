@@ -5,6 +5,7 @@ from tools.app_tools.app_tool import AppTool
 from tools.chat_tools.chat_tool import ChatTool
 from tools.gui_tools.gui_tool import GUITool
 from tools.browser_tools.youtube_tool import YouTubeTool
+from tools.browser_tools.gmail_tool import GmailTool
 
 class ToolExecutor:
 
@@ -22,18 +23,20 @@ class ToolExecutor:
             "app": AppTool,
             "chat": ChatTool,
             "gui": GUITool,
-            "youtube": YouTubeTool
+            "youtube": YouTubeTool,
+            "gmail": GmailTool
         }
 
         tool_class = tool_map.get(tool)
-
-        if tool == "youtube":
-            tool_class = tool_class()
 
         if not tool_class:
             raise ValueError(
                 f"Unknown tool: {tool}"
             )
+
+        # Instantiate browser-based automation classes that manage active state sessions
+        if tool in ["youtube", "gmail"]:
+            tool_class = tool_class()
 
         try:
 

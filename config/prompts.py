@@ -7,7 +7,7 @@ from config.prompt_parts.chat_prompt import CHAT_PROMPT
 from config.prompt_parts.gui_prompt import GUI_PROMPT
 from config.prompt_parts.examples_prompt import EXAMPLES_PROMPT
 from config.prompt_parts.youtube_prompt import YOUTUBE_PROMPT
-
+from config.prompt_parts.gmail_prompt import GMAIL_PROMPT
 
 SYSTEM_PROMPT = "\n".join([
     BASE_PROMPT,
@@ -19,4 +19,5 @@ SYSTEM_PROMPT = "\n".join([
     GUI_PROMPT,
     EXAMPLES_PROMPT,
     YOUTUBE_PROMPT,
+    GMAIL_PROMPT,
 ])

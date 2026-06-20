@@ -46,7 +46,7 @@ class AgentWorker(QThread):
                     
                     try:
                         # Let the tool run and save the file cache
-                        success = self.executor.execute_single(step, status_callback=None)
+                        success = self.executor.execute_single(step, status_callback=self.status_signal.emit)
                         
                         txt_path = "data/yt_transcript.txt"
                         # If a transcript was freshly written to our cache folder, invoke Ollama to respond!
