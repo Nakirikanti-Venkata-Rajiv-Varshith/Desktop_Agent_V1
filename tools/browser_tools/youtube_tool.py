@@ -435,3 +435,137 @@ class YouTubeTool:
         }})()
         """
         return self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
+    
+    def set_volume(self, percentage: int) -> str:
+        """Sets the YouTube player volume to an absolute percentage (0-100)."""
+        # Ensure the percentage bounds are safely within 0 and 100
+        percentage = max(0, min(100, percentage))
+        
+        volume_script = f"""
+        (() => {{
+            const player = document.querySelector('#movie_player') || document.querySelector('.html5-video-player');
+            if (!player) return "YOUTUBE_PLAYER_ELEMENT_NOT_FOUND";
+            
+            if (typeof player.setVolume === 'function') {{
+                player.setVolume({percentage});
+                if (typeof player.unMute === 'function') {{
+                    player.unMute();
+                }}
+                return "SUCCESSFULLY_SET_VOLUME_TO_" + player.getVolume() + "_PERCENT";
+            }}
+            
+            const video = document.querySelector('video');
+            if (video) {{
+                video.volume = {percentage / 100};
+                return "FALLBACK_NATIVE_VOLUME_SET";
+            }}
+            
+            return "COULD_NOT_ADJUST_VOLUME";
+        }})()
+        """
+        res = self.client.send("Runtime.evaluate", {"expression": volume_script, "returnByValue": True})
+        return res.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+
+    def increase_volume(self, current_volume: int = 50, step: int = 15) -> str:
+        """Increases the volume by a specified step value (Defaults to +15%)."""
+        target = current_volume + step
+        return self.set_volume(target)
+
+    def decrease_volume(self, current_volume: int = 50, step: int = 15) -> str:
+        """Decreases the volume by a specified step value (Defaults to -15%)."""
+        target = current_volume - step
+        return self.set_volume(target)
+    
+    def set_playback_speed(self, speed: float):
+        """Modifies the video playback speed natively via JavaScript (e.g., 0.5, 1.0, 1.5, 2.0)."""
+        js_script = f"""
+        (() => {{
+            const video = document.querySelector('video');
+            if (!video) return "VIDEO_ELEMENT_NOT_FOUND";
+            
+            // Adjust the playback rate property natively
+            video.playbackRate = {speed};
+            
+            return "SUCCESSFULLY_SET_SPEED_TO_" + video.playbackRate + "_X";
+        }})()
+        """
+        response = self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
+        return response.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+    
+    def set_video_quality(self, quality: str):
+        """
+        Dynamically modifies the YouTube stream quality overlay layout.
+        Accepts specific tags: '144p', '240p', '360p', '480p', '720p', '1080p', etc.
+        Also handles descriptive aliases: 'highest', 'lowest', 'max', 'min'.
+        """
+        # Normalize incoming format strings safely
+        target_quality = str(quality).strip().lower()
+        
+        js_script = f"""
+        (() => {{
+            const settingsButton = document.querySelector('.ytp-settings-button');
+            if (!settingsButton) return "SETTINGS_BUTTON_NOT_FOUND";
+            
+            // Toggle open the controls drawer view pane if not already exposed
+            if (settingsButton.getAttribute('aria-expanded') !== 'true') {{
+                settingsButton.click();
+            }}
+            
+            setTimeout(() => {{
+                const menuItems = Array.from(document.querySelectorAll('.ytp-menuitem'));
+                const qualityMenu = menuItems.find(item => {{
+                    const label = item.querySelector('.ytp-menuitem-label');
+                    return label && (label.textContent.includes('Quality') || label.textContent.includes('Качество'));
+                }});
+                
+                if (!qualityMenu) return "QUALITY_MENU_NOT_FOUND";
+                qualityMenu.click();
+                
+                setTimeout(() => {{
+                    const options = Array.from(document.querySelectorAll('.ytp-menuitem'));
+                    
+                    // Filter options matching numeric values followed by 'p' (e.g., 1080p, 480p)
+                    const resOptions = options.filter(item => {{
+                        const label = item.querySelector('.ytp-menuitem-label');
+                        return label && /\\d+p/.test(label.textContent);
+                    }});
+                    
+                    if (resOptions.length === 0) return "RESOLUTION_OPTIONS_NOT_FOUND";
+                    
+                    // Sort options numerically ascending order
+                    resOptions.sort((a, b) => {{
+                        const valA = parseInt(a.querySelector('.ytp-menuitem-label').textContent);
+                        const valB = parseInt(b.querySelector('.ytp-menuitem-label').textContent);
+                        return valA - valB;
+                    }});
+                    
+                    let selectedOption = null;
+                    const mode = '{target_quality}';
+                    
+                    if (mode === 'highest' || mode === 'max') {{
+                        selectedOption = resOptions[resOptions.length - 1];
+                    }} else if (mode === 'lowest' || mode === 'min') {{
+                        selectedOption = resOptions[0];
+                    }} else {{
+                        // Match accurate resolution format matching user parameter target
+                        selectedOption = resOptions.find(item => {{
+                            const text = item.querySelector('.ytp-menuitem-label').textContent.toLowerCase();
+                            return text.includes(mode);
+                        }});
+                    }}
+                    
+                    if (selectedOption) {{
+                        const targetLabel = selectedOption.querySelector('.ytp-menuitem-label').textContent;
+                        selectedOption.click();
+                        return "SUCCESSFULLY_SET_QUALITY_TO_" + targetLabel;
+                    }}
+                    
+                    return "SPECIFIED_RESOLUTION_NOT_AVAILABLE";
+                }}, 300);
+            }}, 300);
+            
+            return "EXECUTING_QUALITY_ADJUSTMENT_SEQUENCE";
+        }})()
+        """
+        response = self.client.send("Runtime.evaluate", {"expression": js_script, "returnByValue": True})
+        return response.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")

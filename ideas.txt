@@ -1,0 +1,16 @@
+1. Idea how do  manage to play search,subscribe, comments etc etc in yt?
+
+answer:- 
+    Simple as that we use event listeners as it is a html file after all
+    when possibel also we use direct inbuilt short cuts provided by google to do it
+
+
+
+
+2. One key take away when u decide to add a new feature:-
+
+answer:-
+    when ever you wanna add a new feature you have to first test that feature using test_feature.py
+    by opening chrome using that notes 9902 host one if that works then we implememt that in real code
+
+    the code to launch that agent chromium is :- chromium --remote-debugging-port=9222 --remote-allow-origins=*
