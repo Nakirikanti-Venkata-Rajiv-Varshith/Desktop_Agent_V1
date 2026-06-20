@@ -619,3 +619,66 @@ class YouTubeTool:
         search_url = f"https://www.youtube.com/results?search_query={encoded_query}"
         self.client.send("Runtime.evaluate", {"expression": f'window.location.href = "{search_url}";', "returnByValue": True})
         return f"EXECUTING_SEARCH_FOR_{query.upper()}"
+    
+    def scroll_videos(self, direction: str, steps: int = 1):
+        """
+        Scrolls smoothly video-by-video down or up through the current search or feed layout grid.
+        direction: 'down' or 'up'
+        steps: number of video elements to traverse sequentially
+        """
+        # Ensure our class instance tracks an internal pointer index
+        if not hasattr(self, '_current_scroll_index'):
+            self._current_scroll_index = 0
+
+        target_direction = str(direction).strip().lower()
+        
+        for _ in range(steps):
+            if target_direction == "down":
+                self._current_scroll_index += 1
+            elif target_direction == "up":
+                self._current_scroll_index = max(0, self._current_scroll_index - 1)
+            else:
+                return f"UNKNOWN_SCROLL_DIRECTION: {direction}"
+
+            js_scroll = f"""
+            ((targetIndex) => {{
+                const videoCards = Array.from(document.querySelectorAll('ytd-video-renderer, ytd-rich-item-renderer, ytd-compact-video-renderer'));
+                if (videoCards.length === 0 || targetIndex >= videoCards.length || targetIndex < 0) {{
+                    return "INDEX_OUT_OF_BOUNDS";
+                }}
+                videoCards[targetIndex].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+                return "SCROLLED_TO_" + targetIndex;
+            }})({self._current_scroll_index})
+            """
+            self.client.send("Runtime.evaluate", {"expression": js_scroll, "returnByValue": True})
+            import time
+            time.sleep(1.5)  # Let smooth scrolling physical animation finish intermediate paths cleanly
+
+        return f"SUCCESSFULLY_SCROLLED_{target_direction.upper()}_TO_INDEX_{self._current_scroll_index}"
+
+    def play_visible_video(self):
+        """Launches the video card item that is currently targeted/centered on the display view layer."""
+        if not hasattr(self, '_current_scroll_index'):
+            self._current_scroll_index = 0
+
+        js_play = f"""
+        ((targetIndex) => {{
+            const videoCards = Array.from(document.querySelectorAll('ytd-video-renderer, ytd-rich-item-renderer, ytd-compact-video-renderer'));
+            if (videoCards.length === 0 || targetIndex >= videoCards.length || targetIndex < 0) {{
+                return "NO_ACTIVE_CARD_FOUND";
+            }}
+            const playLink = videoCards[targetIndex].querySelector('a#video-title, a#thumbnail, a.ytd-video-renderer');
+            if (playLink) {{
+                playLink.click();
+                return "PLAYBACK_TRIGGERED";
+            }}
+            return "ANCHOR_NOT_FOUND";
+        }})({self._current_scroll_index})
+        """
+        response = self.client.send("Runtime.evaluate", {"expression": js_play, "returnByValue": True})
+        return response.get("result", {}).get("result", {}).get("value", "EXECUTION_ERROR")
+
+    def exit_video(self):
+        """Returns precisely one page backward in browser history layout context to exit the current video view."""
+        self.client.send("Runtime.evaluate", {"expression": "window.history.back();", "returnByValue": True})
+        return "EXITED_VIDEO_ONE_STEP_BACKWARD"

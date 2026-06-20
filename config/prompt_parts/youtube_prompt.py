@@ -25,6 +25,15 @@ Functions:
 * navigate_to_panel
 * open_notifications
 * search_query
+* scroll_videos
+* play_visible_video
+* exit_video
+
+Arguments for scroll_videos:
+{
+  "direction": string ("down" or "up"),
+  "steps": integer (optional, defaults to 1)
+}
 
 Arguments for navigate_to_panel:
 {
@@ -330,5 +339,38 @@ Output:
   "arguments": {
     "panel_name": "subscriptions"
   }
+}
+
+User:
+go down 3 videos
+
+Output:
+{
+  "tool": "youtube",
+  "function": "scroll_videos",
+  "arguments": {
+    "direction": "down",
+    "steps": 3
+  }
+}
+
+User:
+play this video
+
+Output:
+{
+  "tool": "youtube",
+  "function": "play_visible_video",
+  "arguments": {}
+}
+
+User:
+exit the video
+
+Output:
+{
+  "tool": "youtube",
+  "function": "exit_video",
+  "arguments": {}
 }
 """
