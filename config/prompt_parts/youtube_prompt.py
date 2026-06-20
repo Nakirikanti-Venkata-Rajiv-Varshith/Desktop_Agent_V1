@@ -28,6 +28,10 @@ Functions:
 * scroll_videos
 * play_visible_video
 * exit_video
+* get_video_transcript
+
+Arguments for get_video_transcript:
+{} (No parameters required. The tool dynamically extracts the active YouTube video URL from the open browser session via CDP, safely caches the continuous text structure down onto disk storage space, and reports back a file handling success token.)
 
 Arguments for scroll_videos:
 {
@@ -44,6 +48,7 @@ Arguments for search_query:
 {
   "query": string (e.g., "lofi hip hop radio", "python tutorials")
 }
+
 Arguments for set_video_quality:
 {
   "quality": string (e.g., "144p", "360p", "720p", "1080p", "highest", "lowest")
@@ -373,4 +378,44 @@ Output:
   "function": "exit_video",
   "arguments": {}
 }
+User:
+Can you summarize the video that is currently playing right now?
+
+Output:
+{
+  "tool": "youtube",
+  "function": "get_video_transcript",
+  "arguments": {}
+}
+
+User:
+Explain me this video in short
+
+Output:
+{
+  "tool": "youtube",
+  "function": "get_video_transcript",
+  "arguments": {}
+}
+
+User:
+Why did the speaker use that specific word in the video?
+
+Output:
+{
+  "tool": "youtube",
+  "function": "get_video_transcript",
+  "arguments": {}
+}
+
+User:
+What is this video talking about? Give me a long detailed explanation.
+
+Output:
+{
+  "tool": "youtube",
+  "function": "get_video_transcript",
+  "arguments": {}
+}
+
 """

@@ -682,3 +682,64 @@ class YouTubeTool:
         """Returns precisely one page backward in browser history layout context to exit the current video view."""
         self.client.send("Runtime.evaluate", {"expression": "window.history.back();", "returnByValue": True})
         return "EXITED_VIDEO_ONE_STEP_BACKWARD"
+    
+    def get_video_transcript(self) -> dict:
+        """
+        Captures the active YouTube video URL via CDP, extracts the transcript natively 
+        using the modern API syntax, and writes it directly to data/yt_transcript.txt.
+        Returns a lightweight status dictionary instead of a massive raw string.
+        """
+        import os
+        import requests
+        import urllib.parse
+        from youtube_transcript_api import YouTubeTranscriptApi
+
+        # 1. Connect to browser and capture active video URL
+        try:
+            tabs = requests.get("http://localhost:9222/json").json()
+        except Exception as e:
+            return {"status": "ERROR", "message": f"Unable to reach port 9222. ({e})"}
+
+        target_tab = None
+        for tab in tabs:
+            if tab.get("type") == "page" and "youtube.com/watch" in tab.get("url", ""):
+                target_tab = tab
+                break
+
+        if not target_tab:
+            return {"status": "ERROR", "message": "No active YouTube video page detected."}
+
+        video_url = target_tab.get("url")
+
+        # 2. Extract the video ID
+        try:
+            parsed_url = urllib.parse.urlparse(video_url)
+            video_id = urllib.parse.parse_qs(parsed_url.query).get("v")[0]
+        except Exception:
+            return {"status": "ERROR", "message": "Could not parse video ID from the browser URL."}
+
+        # 3. Fetch the transcript cleanly
+        try:
+            api = YouTubeTranscriptApi()
+            fetched_transcript = api.fetch(video_id)
+            raw_data = fetched_transcript.to_raw_data()
+            full_transcript_text = " ".join([item["text"] for item in raw_data])
+        except Exception as e:
+            return {"status": "ERROR", "message": f"Transcript extraction failed: {e}"}
+
+        # 4. Save to the file cache instead of passing giant strings back live
+        try:
+            os.makedirs("data", exist_ok=True)
+            txt_path = "data/yt_transcript.txt"
+            
+            with open(txt_path, "w", encoding="utf-8") as f:
+                f.write(full_transcript_text)
+                
+            return {
+                "status": "SUCCESS",
+                "message": f"Transcript safely captured and saved to storage file.",
+                "saved_to": txt_path,
+                "video_url": video_url
+            }
+        except Exception as e:
+            return {"status": "ERROR", "message": f"Failed to cache data file to disk: {e}"}

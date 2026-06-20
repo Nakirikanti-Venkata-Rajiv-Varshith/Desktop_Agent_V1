@@ -1258,3 +1258,136 @@ steps
 2026-06-20 15:17:42,657 - INFO - Dispatching query to Ollama (qwen3:8b)...
 2026-06-20 15:17:45,973 - INFO - Executing Tool: youtube.play_visible_video
 2026-06-20 15:18:10,983 - INFO - Ollama model unloaded successfully.
+2026-06-20 15:59:57,863 - INFO - ========================================
+2026-06-20 15:59:57,864 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 15:59:57,864 - INFO - ========================================
+2026-06-20 16:00:01,075 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:00:48,927 - INFO - Planning requested context: 'open youtube'
+2026-06-20 16:00:48,928 - INFO - Fast-path command matched.
+2026-06-20 16:00:48,928 - INFO - Executing Tool: browser.open_url
+2026-06-20 16:00:52,447 - INFO - Planning requested context: 'search justin beiber baby song in youtube'
+2026-06-20 16:00:52,448 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:01:05,602 - INFO - Executing Tool: youtube.search
+2026-06-20 16:01:07,625 - INFO - Planning requested context: 'play the first video'
+2026-06-20 16:01:07,625 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:01:09,836 - INFO - Executing Tool: youtube.play_first
+2026-06-20 16:01:11,852 - INFO - Planning requested context: 'summarzie me the video in short'
+2026-06-20 16:01:11,852 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:01:16,203 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:05:44,635 - INFO - ========================================
+2026-06-20 16:05:44,635 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 16:05:44,635 - INFO - ========================================
+2026-06-20 16:05:47,706 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:06:10,787 - INFO - ========================================
+2026-06-20 16:06:10,787 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 16:06:10,787 - INFO - ========================================
+2026-06-20 16:06:13,855 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:06:47,192 - INFO - Planning requested context: 'summarize me the video in short'
+2026-06-20 16:06:47,193 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:06:58,099 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:23:57,131 - INFO - ========================================
+2026-06-20 16:23:57,131 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 16:23:57,131 - INFO - ========================================
+2026-06-20 16:24:00,225 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:24:24,673 - INFO - Planning requested context: 'open youtube'
+2026-06-20 16:24:24,673 - INFO - Fast-path command matched.
+2026-06-20 16:24:24,673 - INFO - Executing Tool: browser.open_url
+2026-06-20 16:24:28,197 - INFO - Planning requested context: 'search just in beiber song in youtube'
+2026-06-20 16:24:28,198 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:24:40,081 - INFO - Executing Tool: youtube.search
+2026-06-20 16:24:42,106 - INFO - Planning requested context: 'play first song video'
+2026-06-20 16:24:42,107 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:24:44,766 - INFO - Executing Tool: youtube.play_first
+2026-06-20 16:25:04,467 - INFO - Planning requested context: '"Can you summarize the video that is currently playing right now?"'
+2026-06-20 16:25:04,467 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:25:08,111 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:49:16,266 - INFO - ========================================
+2026-06-20 16:49:16,266 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 16:49:16,266 - INFO - ========================================
+2026-06-20 16:49:19,355 - INFO - Stale session transcript data wiped clean on initialization.
+2026-06-20 16:49:19,366 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:49:25,495 - INFO - Planning requested context: 'open youtube'
+2026-06-20 16:49:25,495 - INFO - Fast-path command matched.
+2026-06-20 16:49:25,495 - INFO - Executing Tool: browser.open_url
+2026-06-20 16:49:41,148 - INFO - Planning requested context: 'search justin beiber songs in youtube'
+2026-06-20 16:49:41,148 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:49:51,841 - INFO - Executing Tool: youtube.search
+2026-06-20 16:50:01,198 - INFO - Planning requested context: 'play the first video'
+2026-06-20 16:50:01,198 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:50:03,414 - INFO - Executing Tool: youtube.play_first
+2026-06-20 16:50:24,658 - INFO - Planning requested context: 'summarize me the video'
+2026-06-20 16:50:24,658 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:50:28,369 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:50:31,914 - INFO - Planning requested context: 'explain me in short'
+2026-06-20 16:50:31,914 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:50:53,113 - INFO - Executing Tool: chat.respond
+2026-06-20 16:51:17,568 - INFO - Planning requested context: 'what does this song wanna say to me'
+2026-06-20 16:51:17,568 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:51:25,088 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:52:04,255 - INFO - Planning requested context: 'summarize this video dude in yt'
+2026-06-20 16:52:04,255 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:52:08,644 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:53:30,748 - INFO - Session file data cleanly purged from disk.
+2026-06-20 16:53:30,813 - INFO - Ollama model unloaded successfully.
+2026-06-20 16:54:53,007 - INFO - ========================================
+2026-06-20 16:54:53,007 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 16:54:53,007 - INFO - ========================================
+2026-06-20 16:54:53,070 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:55:00,194 - INFO - Ollama model unloaded successfully.
+2026-06-20 16:55:02,084 - INFO - ========================================
+2026-06-20 16:55:02,084 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 16:55:02,084 - INFO - ========================================
+2026-06-20 16:55:05,149 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 16:55:20,584 - INFO - Planning requested context: 'open yt'
+2026-06-20 16:55:20,584 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:55:30,665 - INFO - Executing Tool: browser.open_url
+2026-06-20 16:55:33,184 - INFO - Planning requested context: 'search justin beiber songs'
+2026-06-20 16:55:33,185 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:55:36,457 - INFO - Executing Tool: browser.search
+2026-06-20 16:55:38,976 - INFO - Planning requested context: 'play first video'
+2026-06-20 16:55:38,977 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:55:41,927 - INFO - Executing Tool: youtube.play_first
+2026-06-20 16:55:58,317 - INFO - Planning requested context: 'open yt'
+2026-06-20 16:55:58,317 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:56:01,410 - INFO - Executing Tool: browser.open_url
+2026-06-20 16:56:03,929 - INFO - Planning requested context: 'search justin beiber songs in youtube'
+2026-06-20 16:56:03,929 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:56:07,607 - INFO - Executing Tool: youtube.search
+2026-06-20 16:56:08,628 - INFO - Planning requested context: 'play first video'
+2026-06-20 16:56:08,629 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:56:11,574 - INFO - Executing Tool: youtube.play_first
+2026-06-20 16:56:43,681 - INFO - Planning requested context: 'summarize me this video'
+2026-06-20 16:56:43,681 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 16:56:47,248 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 16:57:34,502 - INFO - Session file data cleanly purged from disk.
+2026-06-20 16:57:34,567 - INFO - Ollama model unloaded successfully.
+2026-06-20 17:04:32,935 - INFO - ========================================
+2026-06-20 17:04:32,935 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 17:04:32,935 - INFO - ========================================
+2026-06-20 17:04:36,006 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 17:04:41,592 - INFO - Planning requested context: 'open youtube'
+2026-06-20 17:04:41,592 - INFO - Fast-path command matched.
+2026-06-20 17:04:41,592 - INFO - Executing Tool: browser.open_url
+2026-06-20 17:05:03,299 - INFO - Planning requested context: 'search for justin beiber songs in youtube'
+2026-06-20 17:05:03,299 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 17:05:14,583 - INFO - Executing Tool: youtube.search
+2026-06-20 17:05:15,602 - INFO - Planning requested context: 'plat first song'
+2026-06-20 17:05:15,602 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 17:05:19,898 - INFO - Executing Tool: youtube.play_first
+2026-06-20 17:05:36,662 - INFO - Planning requested context: 'summarize me the video'
+2026-06-20 17:05:36,662 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 17:05:40,419 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 17:06:26,380 - INFO - Session file data cleanly purged from disk.
+2026-06-20 17:06:26,444 - INFO - Ollama model unloaded successfully.
+2026-06-20 17:09:43,504 - INFO - ========================================
+2026-06-20 17:09:43,504 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-20 17:09:43,504 - INFO - ========================================
+2026-06-20 17:09:46,569 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-20 17:10:17,811 - INFO - Planning requested context: 'summarize me the video'
+2026-06-20 17:10:17,811 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 17:10:28,669 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 17:11:04,052 - INFO - Planning requested context: 'summarize me the video in very short context'
+2026-06-20 17:11:04,052 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-20 17:11:07,838 - INFO - Executing Tool: youtube.get_video_transcript
+2026-06-20 17:11:37,709 - INFO - Session file data cleanly purged from disk.
+2026-06-20 17:11:37,774 - INFO - Ollama model unloaded successfully.
