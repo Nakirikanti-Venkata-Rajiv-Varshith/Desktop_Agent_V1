@@ -1,15 +1,17 @@
 import os
 import subprocess
 import time
+import requests
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QTextEdit, QLabel
 from PyQt6.QtCore import QThread, pyqtSignal
 from ui.prompt_bar import PromptBar
 from planner.task_planner import TaskPlanner
 from executor.action_executor import ActionExecutor
 from tools.logger import agent_logger
-import subprocess
 from ui.command_splitter import split_commands
-import time
+
+# Import your aesthetic premium style rule configuration
+from ui.prompt_window_looks import AESTHETIC_DARK_QSS
 
 class AgentWorker(QThread):
     """Background computation runner safeguarding UI layout components from locking loops."""
@@ -39,16 +41,11 @@ class AgentWorker(QThread):
                 plan = self.planner.create_plan(command)
                 self.status_signal.emit("Valid payload compiled. Handing control over to executor...")
 
-                # 1. Modify execute_task_plan inside your pipeline or loop to let us capture the payload string
-                # Since we want to pass the result back out, we look at the executor steps
                 for step in plan.steps:
                     self.status_signal.emit(f"Executing Tool: {step.tool}.{step.function}")
                     
-                    # Run the single tool step execution
-                    # Note: To ensure your executor returns the text string data, ensure execute_single returns (success, result)
-                    # For now, we will inspect the file path directly to be 100% bulletproof:
                     try:
-                        # Let the tool run and save the file
+                        # Let the tool run and save the file cache
                         success = self.executor.execute_single(step, status_callback=None)
                         
                         txt_path = "data/yt_transcript.txt"
@@ -67,7 +64,6 @@ class AgentWorker(QThread):
                             )
 
                             # Directly query your local Ollama endpoint from the worker thread
-                            import requests
                             response = requests.post(
                                 "http://localhost:11434/api/generate",
                                 json={
@@ -113,6 +109,9 @@ class MainWindow(QMainWindow):
         # Run startup wipe sequence right as the window initializes
         self._initialize_session()
         self._init_ui()
+        
+        # Apply the aesthetic dark stylesheet skin globally
+        self.setStyleSheet(AESTHETIC_DARK_QSS)
 
     def _initialize_session(self):
         """Wipes old data files on every agent startup."""
@@ -137,43 +136,69 @@ class MainWindow(QMainWindow):
 
     def _init_ui(self):
         self.setWindowTitle("AI Computer Desktop Agent - V1 Console")
-        self.resize(650, 450)
+        self.resize(680, 480) # Modern roomier workspace proportions
 
         central_widget = QWidget()
         layout = QVBoxLayout()
+        layout.setSpacing(14)
+        layout.setContentsMargins(22, 22, 22, 22)
 
+        # Header Label
+        header_lbl = QLabel("SYSTEM LIVE STREAM OUTPUT")
+        header_lbl.setObjectName("HeaderLabel") # Connects widget style to custom QSS rules
+        layout.addWidget(header_lbl)
+
+        # Main Chat Display Monitor
         self.chat_display = QTextEdit()
         self.chat_display.setReadOnly(True)
+        layout.addWidget(self.chat_display)
         
-        self.status_bar = QLabel("System Ready")
+        # Glow Indicator Status Bar
+        self.status_bar = QLabel("● SYSTEM READY")
+        self.status_bar.setObjectName("StatusBar") # Connects widget style to custom QSS rules
         self.status_bar.setWordWrap(True)
-        self.status_bar.setStyleSheet("color: #7f8c8d; font-style: italic; padding: 2px;")
+        self.status_bar.setProperty("state", "ready") # Connects to custom dynamic property toggle rule
+        layout.addWidget(self.status_bar)
 
+        # Input Prompt Element
         self.prompt_bar = PromptBar()
         self.prompt_bar.command_submitted.connect(self._process_command)
-
-        layout.addWidget(QLabel("Execution Engine Stream Output:"))
-        layout.addWidget(self.chat_display)
-        layout.addWidget(self.status_bar)
         layout.addWidget(self.prompt_bar)
 
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
+
+    def set_ui_processing_state(self, is_processing: bool):
+        """Toggles the status bar between active orange processing and green idle ready states."""
+        if is_processing:
+            self.status_bar.setText("● SYSTEM PROCESSING...")
+            self.status_bar.setProperty("state", "processing")
+        else:
+            self.status_bar.setText("● SYSTEM READY")
+            self.status_bar.setProperty("state", "ready")
+        
+        # Force the Qt graphics styling engine to update custom widget attributes dynamically
+        self.status_bar.style().unpolish(self.status_bar)
+        self.status_bar.style().polish(self.status_bar)
 
     def _process_command(self, text: str):
         cleaned_text = text.strip().lower()
 
         if cleaned_text in ["clear", "cls", "reset"]:
             self.chat_display.clear()
-            self.status_bar.setText("Console history cleared.")
+            self.set_ui_processing_state(False)
             return
 
         if cleaned_text in ["exit", "quit", "close"]:
             self.close()
             return
 
-        self.chat_display.append(f"<b>User:</b> {text}")
+        # High-visibility contrast text for User entry
+        self.chat_display.append(f"<font color='#ffffff'><b>User:</b> {text}</font>")
         self.prompt_bar.set_running_state(True)
+        
+        # Trigger orange glow status
+        self.set_ui_processing_state(True)
 
         self.worker = AgentWorker(self.planner, self.executor, text)
         self.worker.status_signal.connect(self._update_status)
@@ -181,36 +206,31 @@ class MainWindow(QMainWindow):
         self.worker.start()
 
     def _update_status(self, status: str):
-        # Check if this is the large text summary block from the AI Agent
+        # Check if this is a large response block from the local LLM Agent
         if "<b>AI Agent:</b>" in status or len(status) > 150:
-            # 1. Separate the header from the actual response body
-            header = "<b><font color='#2980b9'>[System] AI Agent:</font></b><br>"
+            header = "<b><font color='#b388ff'>[System] AI Agent:</font></b><br>"
             body = status.replace("<b>AI Agent:</b>", "").strip()
             
-            # 2. Convert markdown newlines into clean HTML paragraph breaks for PyQt6
+            # Format markdown newline configurations to clean HTML page breaks
             formatted_body = body.replace("\n", "<br>")
-            
-            # 3. Append the beautifully spaced HTML block to your chat layout
-            self.chat_display.append(f"{header}{formatted_body}<br>")
-            self.status_bar.setText("Model finished generating response.")
+            self.chat_display.append(f"{header}<font color='#f8f8f2'>{formatted_body}</font><br>")
         else:
-            # Normal small system updates fit perfectly in the bottom bar
-            self.status_bar.setText(status)
-            self.chat_display.append(f"<font color='#2980b9'>[System]</font> {status}")
+            # High-visibility muted gray layout font for minor updates
+            self.chat_display.append(f"<font color='#b388ff'>[System]</font> <font color='#a1a1b3'>{status}</font>")
 
     def _handle_worker_completion(self, success: bool):
         self.prompt_bar.set_running_state(False)
-        if success:
-            self.status_bar.setText("Task cycle finished successfully.")
-        else:
-            self.status_bar.setText("Cycle terminated early due to processing faults.")
+        
+        # Return status dot state back to green idle glow
+        self.set_ui_processing_state(False)
+        
+        if not success:
+            self.chat_display.append("<font color='#ff5555'>[Warning] Sequence cycle terminated early due to processing faults.</font>")
 
     def closeEvent(self, event):
-        """Triggers automatically when the window is closed."""
-        # 1. Clear out the temporary transcript file from disk
+        """Triggers automatically when the window layout is closed."""
         self._cleanup_session()
 
-        # 2. Shut down your local Ollama instance
         try:
             subprocess.run(["ollama", "stop", "qwen3:8b"], timeout=10)
             agent_logger.info("Ollama model unloaded successfully.")
