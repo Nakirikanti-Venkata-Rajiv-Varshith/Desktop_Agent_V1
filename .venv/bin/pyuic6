@@ -1,6 +1,0 @@
-#!/home/varshith-nakirikanti/gitpro/Ai_Desktop/Desktop_Agent_V1/.venv/bin/python3
-import sys
-from PyQt6.uic.pyuic import main
-if __name__ == '__main__':
-    sys.argv[0] = sys.argv[0].removesuffix('.exe')
-    sys.exit(main())
