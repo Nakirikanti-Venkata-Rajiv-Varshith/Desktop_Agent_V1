@@ -18,3 +18,5 @@ logs/*.log
 # Operating System Files
 .DS_Store
 Thumbs.db
+
+credentials.json

@@ -118,3 +118,49 @@
 2026-06-20 22:19:28,231 - INFO - Dispatching query to Ollama (qwen3:8b)...
 2026-06-20 22:19:46,888 - INFO - Executing Tool: chat.respond
 2026-06-20 22:19:57,841 - INFO - Ollama model unloaded successfully.
+2026-06-21 15:30:42,238 - INFO - ========================================
+2026-06-21 15:30:42,238 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-21 15:30:42,238 - INFO - ========================================
+2026-06-21 15:30:45,379 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-21 15:30:50,076 - INFO - Planning requested context: 'hello'
+2026-06-21 15:30:50,076 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:31:06,716 - INFO - Executing Tool: chat.respond
+2026-06-21 15:31:18,959 - INFO - Planning requested context: 'what time is it now?'
+2026-06-21 15:31:18,959 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:31:24,147 - INFO - Executing Tool: system.current_time
+2026-06-21 15:33:26,209 - INFO - Ollama model unloaded successfully.
+2026-06-21 15:33:28,901 - INFO - ========================================
+2026-06-21 15:33:28,901 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-21 15:33:28,901 - INFO - ========================================
+2026-06-21 15:33:32,076 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-21 15:33:36,642 - INFO - Planning requested context: 'hello'
+2026-06-21 15:33:36,643 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:33:50,663 - INFO - Executing Tool: chat.respond
+2026-06-21 15:34:01,991 - INFO - Planning requested context: 'open gmail'
+2026-06-21 15:34:01,991 - INFO - Fast-path command matched.
+2026-06-21 15:34:01,991 - INFO - Executing Tool: browser.open_url
+2026-06-21 15:34:31,418 - INFO - Planning requested context: 'compose a mail to zforvar@gmail.com subject test body using ai'
+2026-06-21 15:34:31,418 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:34:36,819 - INFO - Executing Tool: gmail.compose_email
+2026-06-21 15:34:42,958 - INFO - Planning requested context: 'sending mail'
+2026-06-21 15:34:42,958 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:35:29,654 - INFO - Executing Tool: gmail.compose_email
+2026-06-21 15:35:29,655 - ERROR - Tool Execution Failed: GmailTool.compose_email() missing 3 required positional arguments: 'recipient', 'subject', and 'body'
+2026-06-21 15:36:05,703 - INFO - Planning requested context: 'compose a mail to zforvar@gmail.com subject test body using ai'
+2026-06-21 15:36:05,703 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:36:13,198 - INFO - Executing Tool: gmail.compose_email
+2026-06-21 15:36:19,246 - INFO - Planning requested context: 'sending mail sehedule that mail to tommorow 12pm'
+2026-06-21 15:36:19,246 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:36:34,749 - INFO - Executing Tool: gmail.schedule_email
+2026-06-21 15:37:00,090 - INFO - Ollama model unloaded successfully.
+2026-06-21 15:41:40,688 - INFO - ========================================
+2026-06-21 15:41:40,688 - INFO - Initializing AI Computer Agent V1 Engine Bootstrap
+2026-06-21 15:41:40,688 - INFO - ========================================
+2026-06-21 15:41:43,766 - INFO - System fully operational. Displaying UI interface windows.
+2026-06-21 15:41:49,197 - INFO - Planning requested context: 'send email to realmetabfor@gmail.com subject hello body namaste tomorrow 2pm'
+2026-06-21 15:41:49,197 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:42:08,483 - INFO - Executing Tool: gmail.schedule_email
+2026-06-21 15:42:50,116 - INFO - Planning requested context: 'send email to realmetabfor@gmail.com subject hello body namaste'
+2026-06-21 15:42:50,116 - INFO - Dispatching query to Ollama (qwen3:8b)...
+2026-06-21 15:42:57,315 - INFO - Executing Tool: gmail.compose_email
+2026-06-21 15:44:30,905 - INFO - Ollama model unloaded successfully.

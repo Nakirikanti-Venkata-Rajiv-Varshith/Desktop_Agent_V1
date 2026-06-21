@@ -15,3 +15,8 @@ answer:-
 
     the code to launch that agent chromium is :- chromium --remote-debugging-port=9222 --remote-allow-origins=*
 
+
+3. Playright by microsoft
+
+it can be used for find the keys that are present on the browser screen instead of javascript see the fusion of both is very useful
+

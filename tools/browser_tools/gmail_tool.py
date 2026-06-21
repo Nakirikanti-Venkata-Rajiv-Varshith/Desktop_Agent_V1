@@ -3,6 +3,9 @@ import json
 import requests
 import websocket
 from tools.browser_tools.browser_focus import focus_chromium
+import sys
+from datetime import datetime, timedelta
+from playwright.sync_api import sync_playwright
 
 class GmailTool:
     def __init__(self, debug_port=9222):
@@ -182,3 +185,290 @@ class GmailTool:
             self.ws.close()
 
         return {"status": "SUCCESS", "message": "Email composed and transmitted successfully."}
+
+    def schedule_email(
+        self,
+        recipient: str,
+        subject: str,
+        body: str,
+        time: str
+    ):
+        """
+        Schedule an email using Gmail's native schedule-send.
+        time format expected:
+        14:00
+        09:30
+        18:45
+        """
+
+        try:
+
+            now = datetime.now()
+
+            target_time = datetime.strptime(
+                time,
+                "%H:%M"
+            ).replace(
+                year=now.year,
+                month=now.month,
+                day=now.day
+            )
+
+            if target_time <= now:
+                target_time += timedelta(days=1)
+
+            target_date_str = target_time.strftime(
+                "%B %d, %Y"
+            )
+
+            target_hour_str = target_time.strftime(
+                "%I:%M %p"
+            )
+
+            with sync_playwright() as p:
+
+                browser = p.chromium.connect_over_cdp(
+                    "http://localhost:9222"
+                )
+
+                context = browser.contexts[0]
+
+                gmail_page = next(
+                    (
+                        page
+                        for page in context.pages
+                        if "mail.google.com" in page.url
+                    ),
+                    None
+                )
+
+                if not gmail_page:
+
+                    gmail_page = context.new_page()
+
+                    gmail_page.goto(
+                        "https://mail.google.com"
+                    )
+
+                    gmail_page.wait_for_timeout(
+                        5000
+                    )
+
+                # ==================================================
+                # OPEN COMPOSE
+                # ==================================================
+
+                gmail_page.evaluate(
+                    """
+                    () => {
+                        let composeBtn =
+                            document.querySelector(
+                                'div[role="button"][gh="cm"]'
+                            ) ||
+                            document.querySelector(
+                                '.T-I.T-I-KE.L3'
+                            );
+
+                        if (composeBtn) {
+                            composeBtn.focus();
+                            composeBtn.click();
+                        }
+                    }
+                    """
+                )
+
+                gmail_page.wait_for_timeout(
+                    2000
+                )
+
+                # ==================================================
+                # FILL EMAIL
+                # ==================================================
+
+                gmail_page.evaluate(
+                    """
+                    ([rec, sub, bod]) => {
+
+                        let toField =
+                            document.querySelector(
+                                'input[peoplekit-id], textarea[aria-label="To"], input[aria-label="To"], textarea[name="to"]'
+                            );
+
+                        if (toField) {
+
+                            toField.focus();
+
+                            document.execCommand(
+                                'insertText',
+                                false,
+                                rec
+                            );
+
+                            toField.dispatchEvent(
+                                new KeyboardEvent(
+                                    'keydown',
+                                    {
+                                        bubbles: true,
+                                        cancelable: true,
+                                        key: 'Enter',
+                                        keyCode: 13
+                                    }
+                                )
+                            );
+                        }
+
+                        let subjField =
+                            document.querySelector(
+                                'input[name="subjectbox"], input[aria-label="Subject"]'
+                            );
+
+                        if (subjField) {
+
+                            subjField.focus();
+
+                            document.execCommand(
+                                'insertText',
+                                false,
+                                sub
+                            );
+                        }
+
+                        let bodyField =
+                            document.querySelector(
+                                'div[role="textbox"][aria-label="Message Body"]'
+                            );
+
+                        if (bodyField) {
+
+                            bodyField.focus();
+
+                            document.execCommand(
+                                'insertText',
+                                false,
+                                bod
+                            );
+                        }
+                    }
+                    """,
+                    [
+                        recipient,
+                        subject,
+                        body
+                    ]
+                )
+
+                gmail_page.wait_for_timeout(
+                    2000
+                )
+
+                # ==================================================
+                # OPEN SCHEDULE SEND
+                # ==================================================
+
+                gmail_page.locator(
+                    'div[role="button"][data-tooltip*="More send options"], .G-asf'
+                ).first.click()
+
+                gmail_page.wait_for_timeout(
+                    1000
+                )
+
+                gmail_page.locator(
+                    'div[role="menuitem"]:has-text("Schedule send")'
+                ).first.click()
+
+                gmail_page.wait_for_timeout(
+                    1500
+                )
+
+                gmail_page.locator(
+                    'text=Pick date & time'
+                ).first.click()
+
+                # ==================================================
+                # PICK DATE/TIME
+                # ==================================================
+
+                schedule_dialog = gmail_page.get_by_role(
+                    "dialog",
+                    name="Pick date & time"
+                )
+
+                schedule_dialog.wait_for(
+                    timeout=5000
+                )
+
+                dialog_inputs = schedule_dialog.locator(
+                    "input"
+                )
+
+                date_input = dialog_inputs.nth(0)
+
+                date_input.click()
+
+                gmail_page.keyboard.press(
+                    "Meta+A"
+                    if sys.platform == "darwin"
+                    else "Control+A"
+                )
+
+                gmail_page.keyboard.type(
+                    target_date_str,
+                    delay=100
+                )
+
+                gmail_page.keyboard.press(
+                    "Tab"
+                )
+
+                gmail_page.wait_for_timeout(
+                    500
+                )
+
+                time_input = dialog_inputs.nth(1)
+
+                time_input.click()
+
+                gmail_page.keyboard.press(
+                    "Meta+A"
+                    if sys.platform == "darwin"
+                    else "Control+A"
+                )
+
+                time_input.fill(
+                    target_hour_str
+                )
+
+                time_input.press(
+                    "Tab"
+                )
+
+                gmail_page.wait_for_timeout(
+                    1000
+                )
+
+                schedule_dialog.get_by_role(
+                    "button",
+                    name="Schedule send"
+                ).click()
+
+                gmail_page.wait_for_timeout(
+                    3000
+                )
+
+                return {
+                    "status": "SUCCESS",
+                    "message": (
+                        f"Email scheduled to "
+                        f"{recipient} "
+                        f"at "
+                        f"{target_hour_str}"
+                    )
+                }
+
+        except Exception as e:
+
+            return {
+                "status": "ERROR",
+                "message": str(e)
+            }

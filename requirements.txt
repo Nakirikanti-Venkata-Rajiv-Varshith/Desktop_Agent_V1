@@ -6,3 +6,4 @@ psutil
 pyautogui
 websocket-client
 youtube-transcript-api
+playwright
