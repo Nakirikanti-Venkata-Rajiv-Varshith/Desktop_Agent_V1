@@ -201,7 +201,26 @@
     "tool":"browser",
     "function":"go_forward",
     "arguments":{}
-  }
+  },
+  
+    "what time is it": {
+      "tool":"system",
+      "function":"current_time",
+      "arguments":{}
+    },
+
+    "what time is it now": {
+      "tool":"system",
+      "function":"current_time",
+      "arguments":{}
+    },
+
+    "current time": {
+      "tool":"system",
+      "function":"current_time",
+      "arguments":{}
+    }
+  
 
 
 }

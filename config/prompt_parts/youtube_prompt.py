@@ -94,6 +94,20 @@ Arguments for decrease_volume:
   "step": integer (optional, defaults to 15)
 }
 
+IMPORTANT:
+
+Use argument names EXACTLY as specified.
+
+For comment:
+{
+  "text": "<comment>"
+}
+
+Never use:
+{
+  "comment": "<comment>"
+}
+
 Examples:
 
 User:

@@ -26,6 +26,13 @@ Arguments:
   "time": string
 }
 
+* summarize_emails
+
+Arguments:
+{
+  "date_filter": string
+}
+
 Behavioral Constraints & Guardrails:
 - The system will handle opening and navigating to Gmail automatically regardless of the user's current active page (e.g., New Tab page, Google Home, YouTube, etc.). Focus solely on extracting intent.
 - If the user provides a recipient and a subject but leaves the body empty, you MUST automatically draft a professional, complete email body matching the tone of the subject.
@@ -57,6 +64,116 @@ and NEVER use:
 "function":"compose_email"
 
 Compose_email is ONLY for immediate sending.
+
+IMPORTANT:
+
+If the user asks to:
+
+- read emails
+- summarize emails
+- summarize inbox
+- summarize mails
+- show today's emails
+- show yesterday's emails
+- summarize emails from a specific date
+- summarize important emails
+- give email digest
+- read my inbox
+
+then ALWAYS use:
+
+"function":"summarize_emails"
+
+and NEVER use:
+
+"compose_email"
+
+or
+
+"schedule_email"
+
+for those requests.
+
+EMAIL SUMMARY OUTPUT REQUIREMENTS:
+
+When using:
+
+"function":"summarize_emails"
+
+the generated email digest MUST follow this structure exactly.
+
+MAIL 1
+Subject: <email subject>
+
+Summary:
+<short summary in 1 sentence>
+
+Date & Time Received:
+<date and time>
+
+--------------------------------
+
+MAIL 2
+Subject: <email subject>
+
+Summary:
+<short summary in 1 sentence>
+
+Date & Time Received:
+<date and time>
+
+--------------------------------
+
+Continue for all matching emails.
+
+After all emails output:
+
+HIGH ALERT EMAILS
+
+Only include emails that require attention such as:
+
+- Security alerts
+- Verification codes
+- Password reset emails
+- Account access notifications
+- Banking notifications
+- Payment notifications
+- Meeting invitations
+- Interview requests
+- Job opportunities
+- Deadline reminders
+- Urgent requests
+
+Format:
+
+1.
+Subject: <subject>
+
+Date & Time Received:
+<date and time>
+
+Reason:
+<why this email is important>
+
+2.
+Subject: <subject>
+
+Date & Time Received:
+<date and time>
+
+Reason:
+<why this email is important>
+
+If no important emails exist write:
+
+HIGH ALERT EMAILS
+
+None
+
+Summaries must be concise.
+Maximum 1 sentence per email.
+Never repeat the entire email content.
+
 
 Examples:
 
@@ -299,4 +416,125 @@ Output:
     "time":"11:00"
   }
 }
+
+User:
+summarize today's emails
+
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"today"
+  }
+}
+
+User:
+summarize june 20 emails
+
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"Jun 20"
+  }
+}
+
+User:
+read my inbox and tell me important emails
+
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"today"
+  }
+}
+
+User:
+give me today's email digest
+
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"today"
+  }
+}
+
+User:
+show important mails from yesterday
+
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"yesterday"
+  }
+}
+
+User:
+check my inbox and summarize emails received today
+
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"today"
+  }
+}
+
+User:
+Create an email for abc@gmail.com subject Status body Task completed and schedule delivery for tomorrow at 11 AM
+Output:
+{
+  "tool":"gmail",
+  "function":"schedule_email",
+  "arguments":{
+    "recipient":"abc@gmail.com",
+    "subject":"Status",
+    "body":"Task completed",
+    "time":"11:00"
+  }
+}
+
+User:
+Summarize my emails from today and give me a digest
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"today"
+  }
+}
+
+User:
+Can you read my inbox from yesterday and check for high alert items?
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"yesterday"
+  }
+}
+
+User:
+Give me a summary of my emails received on 2026-06-15
+Output:
+{
+  "tool":"gmail",
+  "function":"summarize_emails",
+  "arguments":{
+    "date_filter":"2026-06-15"
+  }
+}
+
+
 """

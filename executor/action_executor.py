@@ -60,13 +60,36 @@ class ActionExecutor:
                         agent_logger.error(f"Failed to expand file text data: {str(fe)}")
 
             # 3. Pass the result back out to the console and caller wrapper
+
             if status_callback:
-                # If it's a huge transcript string, let's just log a small status snippet 
-                # so the PyQt6 GUI layout doesn't lag or crash rendering characters!
-                if isinstance(result, str) and "--- TRANSCRIPT START ---" in result:
-                    status_callback("Transcript loaded successfully. Prompt compiled for Ollama processing.")
+
+                if (
+                    isinstance(result, dict)
+                    and result.get("status") == "SUCCESS"
+                    and "summary" in result
+                ):
+
+                    status_callback(
+                        f"<b>AI Agent:</b>\n{result['summary']}"
+                    )
+
+                elif (
+                    isinstance(result, str)
+                    and "--- TRANSCRIPT START ---" in result
+                ):
+
+                    status_callback(
+                        "Transcript loaded successfully. Prompt compiled for Ollama processing."
+                    )
+
                 else:
-                    status_bar_text = str(result)[:300] + "..." if len(str(result)) > 300 else str(result)
+
+                    status_bar_text = (
+                        str(result)[:300] + "..."
+                        if len(str(result)) > 300
+                        else str(result)
+                    )
+
                     status_callback(status_bar_text)
 
             return True

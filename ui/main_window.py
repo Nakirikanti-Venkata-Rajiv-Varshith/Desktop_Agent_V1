@@ -9,6 +9,7 @@ from planner.task_planner import TaskPlanner
 from executor.action_executor import ActionExecutor
 from tools.logger import agent_logger
 from ui.command_splitter import split_commands
+from llm.ollama_client import OllamaClient
 
 # Import your aesthetic premium style rule configuration
 from ui.prompt_window_looks import AESTHETIC_DARK_QSS
@@ -115,24 +116,75 @@ class MainWindow(QMainWindow):
 
     def _initialize_session(self):
         """Wipes old data files on every agent startup."""
-        txt_path = "data/yt_transcript.txt"
-        if os.path.exists(txt_path):
-            try:
-                with open(txt_path, "w", encoding="utf-8") as f:
-                    f.write("")
-                agent_logger.info("Stale session transcript data wiped clean on initialization.")
-            except Exception as e:
-                agent_logger.warning(f"Failed to clean data cache file during startup: {str(e)}")
+        # txt_path = "data/yt_transcript.txt"
+        # if os.path.exists(txt_path):
+        #     try:
+        #         with open(txt_path, "w", encoding="utf-8") as f:
+        #             f.write("")
+        #         agent_logger.info("Stale session transcript data wiped clean on initialization.")
+        #     except Exception as e:
+        #         agent_logger.warning(f"Failed to clean data cache file during startup: {str(e)}")
+
+        transcript_files = [
+            "data/yt_transcript.txt",
+            "data/gmail_transcript.txt"
+        ]
+
+        for txt_path in transcript_files:
+
+            if os.path.exists(txt_path):
+
+                try:
+
+                    with open(
+                        txt_path,
+                        "w",
+                        encoding="utf-8"
+                    ) as f:
+
+                        f.write("")
+
+                    agent_logger.info(
+                        f"Cleared: {txt_path}"
+                    )
+
+                except Exception as e:
+
+                    agent_logger.warning(
+                        f"Failed clearing {txt_path}: {str(e)}"
+                    )
 
     def _cleanup_session(self):
         """Completely deletes the temporary transcript file when exiting."""
-        txt_path = "data/yt_transcript.txt"
-        if os.path.exists(txt_path):
-            try:
-                os.remove(txt_path)
-                agent_logger.info("Session file data cleanly purged from disk.")
-            except Exception as e:
-                agent_logger.warning(f"Error during session file cleanup: {str(e)}")
+        # txt_path = "data/yt_transcript.txt"
+        # if os.path.exists(txt_path):
+        #     try:
+        #         os.remove(txt_path)
+        #         agent_logger.info("Session file data cleanly purged from disk.")
+        #     except Exception as e:
+        #         agent_logger.warning(f"Error during session file cleanup: {str(e)}")
+        transcript_files = [
+            "data/yt_transcript.txt",
+            "data/gmail_transcript.txt"
+            "logs/gmail_summary.log"
+        ]
+
+        for txt_path in transcript_files:
+
+            if os.path.exists(txt_path):
+
+                try:
+
+                    os.remove(txt_path)
+                    agent_logger.info(
+                        f"Deleted: {txt_path}"
+                    )
+
+                except Exception as e:
+
+                    agent_logger.warning(
+                        f"Cleanup failed for {txt_path}: {str(e)}"
+                    )
 
     def _init_ui(self):
         self.setWindowTitle("AI Computer Desktop Agent - V1 Console")
